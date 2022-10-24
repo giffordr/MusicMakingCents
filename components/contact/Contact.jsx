@@ -1,4 +1,5 @@
 import './Contact.css';
+import RatingBar from "./ratingBar.jsx";
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
@@ -28,102 +29,237 @@ import {
 } from 'react-router-dom';
 
 import CloseIcon from '@mui/icons-material/Close';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+//import {Chart} from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
+import "chartjs-plugin-doughnut-innertext";
+import 'chartjs-plugin-style';
+//import DoughnutText from './DoughnutText.jsx';
 
 
-class Description extends React.Component {
+ChartJS.register(ArcElement, Tooltip, Legend);
 
-   
-  handleClose = (event, reason) => {
+
+class Contact extends React.Component {
+  
+colors =   {
+            green: "rgba(75, 192, 192, 1)",
+            yellow: "rgba(255, 206, 86, 1)",
+            orange: "rgba(255, 206, 86, 1)",
+            red: "rgba(255, 99, 132, 1)",
+          };
+  
+colorsHover =   {
+            green: "rgba(75, 192, 192, 0.6)",
+            yellow: "rgba(255, 206, 86, 0.6)",
+            orange: "rgba(255, 206, 86, 0.6)",
+            red: "rgba(255, 99, 132, 0.6)",
+          };
+
+testData = [];
+  
+handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
     this.setState({open: false});
   };
 
-  componentDidMount(){
+componentDidMount(){
           window.scrollTo({ top: 0, behavior: "smooth" })
-}
+};
+  
+addNewArticle = (TTP, Cost, Exposure, Difficulty, Profit, ArticleTitle) => {
+  
+    let score = TTP + Cost + Exposure + Difficulty + Profit;
+  
+    let tempData = [
+        { name: "TTP", bgcolor: "rgba(255, 99, 132, 1)", completed: TTP },
+        { name: "Cost", bgcolor: "rgba(75, 192, 192, 1)", completed: Cost },
+        { name: "Reach", bgcolor: "rgba(255, 206, 86, 1)", completed: Exposure },
+        { name: "Difficulty", bgcolor: "rgba(255, 99, 132, 1)", completed: Difficulty },
+        { name: "Profit", bgcolor: "rgba(75, 192, 192, 1)", completed: Profit },
+     ];
+  
+    let pieAmount = [0,0,0,0];
+  
+    let barColor = [
+           "rgba(75, 192, 192, 1)",
+           "rgba(255, 206, 86, 1)",
+           "rgba(255, 206, 86, 1)",
+           "rgba(255, 99, 132, 1)",
+          ];
+  
+    let labelColor = [
+           "rgba(75, 192, 192, 1)",
+           "rgba(255, 206, 86, 1)",
+           "rgba(255, 206, 86, 1)",
+           "rgba(255, 99, 132, 1)",
+           "rgba(255, 99, 132, 1)",
+          ];
+  
+    let hoverColor = [];
+  
+    let chartLabels = ["TTP","Cost","Reach", "Difficulty", "Profit"];
+    
+    tempData.map((item,idx) => {
+      
+      if (item.completed >= 15){
+        item.bgcolor = this.colors.green;
+        pieAmount[0] = pieAmount[0]+20;
+        barColor[0] =this.colors.green;
+        labelColor[idx] =this.colors.green;
+        hoverColor[0] = this.colorsHover.green;
+      }; 
+      
+      if (item.completed >= 10  && item.completed< 15){
+        item.bgcolor = this.colors.yellow;
+        pieAmount[1] = pieAmount[1]+20;
+        barColor[1] =this.colors.yellow;
+        labelColor[idx] =this.colors.yellow;
+        hoverColor[1] = this.colorsHover.yellow;
+      }; 
+      
+      if (item.completed >= 5  && item.completed< 10){
+        item.bgcolor = this.colors.orange;
+        pieAmount[2] = pieAmount[2]+20;
+        barColor[2] =this.colors.orange;
+        labelColor[idx] =this.colors.orange;
+        hoverColor[2] = this.colorsHover.orange;
+      };
+      
+      if (item.completed >= 0  && item.completed< 5){
+        item.bgcolor = this.colors.red;
+        pieAmount[3] = pieAmount[3]+20;
+        barColor[3] =this.colors.red;
+        labelColor[idx] =this.colors.red;
+        hoverColor[3] = this.colorsHover.red;
+      };
+    });
+    
+    this.testData.push({title: ArticleTitle, data: tempData, datastuff: {
+          labels: chartLabels,
+          datasets: [
+            {
+              data: pieAmount,
+              backgroundColor: barColor,
+              borderColor: barColor,
+              hoverBackgroundColor: hoverColor,
+              borderWidth: 0.4,
+              weight: 0.1,
+              
+            },
+          ],
+        },
+         options: {
+            cutout: "90%",
+            responsive: true,
+            maintainAspectRatio: false,
+            centerText: {
+                    color: "black",
+                    value: score,
+                    fontSizeAdjust: 1.2 // increase font size 20% based on default font size
+                  },
+            
+            plugins: {
+                legend: {
+                    display: false,
+                    
+                },
+              tooltip: {
+                enabled: false,
+                 callbacks: {
+                  label: function(context) { 
+                    var label = chartLabels[context.dataIndex];
+                    return label;
+                                           },
+                            }
+                        },
+                      },
+               
+            
+                  
+                  },
+                        
+  });
+    
+};
+
  
 render() {
-  
-  return (
-    <div className="Body">
-    <Card id="Header" sx={{maxWidth: '100%', height: '20%', minHeight: 200, maxHeight: 700}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
-         <div style={{ display:'flex', justifyContent:'center', alignItems:'center'}}>
-             <CardContent sx={{alignItems: 'center', justifyContent:'center', mx:'15vmin', mt:'20vmin', mb:'15vmin'}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}} >   
-              <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Georgia', display: { xs: 'none', md: 'flex' } }} variant="h4" align="center" alignItems="center" justifyContent="center" m='auto'> 
-                   Freshen up your bow & enjoy a better playing experience
-              </Typography>
-               <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Georgia', display: { xs: 'flex', md: 'none' } }} variant="h5" align="center" alignItems="center" justifyContent="center" m='auto'> 
-                   Freshen up your bow & enjoy a better playing experience
-              </Typography>
-            </CardContent>
-           
-          </div>
-      </Card>
-    <div className="Body">
-      
-    <Box sx={{maxWidth:1100}} alignItems="center" justifyContent="center" m='auto'>    
-    
-      
-      <Box sx={{ flexGrow: 1 }} display="flex" alignItems="center" justifyContent="center" m="auto">
-        <Stack direction="column" alignItems="center" justifyContent="center">
-        <Grid container spacing={1} display="flex" alignItems="center" justifyContent="center">
-          <Grid item xs display="flex" alignItems="center" justifyContent="center" m="auto">
-            <Card sx={{maxWidth: 370, minWidth: 260, minHeight: 210}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
-              <CardContent alignItems="center" justifyContent="center">
-                <Typography sx={{ fontFamily: 'Georgia' }} style={{color: "#444242"}} variant="h5" alignItems="center" align = "center">Address</Typography><br/>
-                <Stack direction="column" alignItems="center" align = "center">
-                  <Typography sx={{ fontFamily: 'Georgia' }} style={{color: "#444242"}} variant="subtitle" alignItems="center" align="center">1689 Amberwood Dr</Typography>
-                  <Typography sx={{ fontFamily: 'Georgia' }} style={{color: "#444242"}} variant="subtitle" alignItems="center" align="center">South Pasadena, CA 91030</Typography>
-                </Stack>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs display="flex" alignItems="center" justifyContent="center" m="auto">
-            <Card sx={{maxWidth: 370, minWidth: 260, minHeight: 210}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
-              <CardContent>
-                <Typography sx={{ fontFamily: 'Georgia' }} style={{color: "#444242"}} variant="h5" alignItems="center" align = "center">Phone</Typography><br/>
-                <Stack direction="column" alignItems="center" align = "center">
-                  <Typography sx={{ fontFamily: 'Georgia' }} style={{color: "#444242"}} id = 'number' variant="body" alignItems="center" align = "center">(626) 658-7933</Typography>
-                  
-                </Stack>
-              </CardContent>
-            </Card>
-          </Grid>
-          
-        
-        
-        <Grid item xs display="flex" alignItems="center" justifyContent="center" m="auto">
-          <Card sx={{maxWidth: 370, minWidth: 260, minHeight: 210, display:"flex"}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
-              <CardContent>
-                <Typography sx={{ fontFamily: 'Georgia' }} style={{color: "#444242"}} variant="h5" alignItems="center" align = "center">Email</Typography><br/>
-                <Stack direction="column" alignItems="center" align = "center">
-                  <Typography sx={{ fontFamily: 'Georgia' }} style={{color: "#444242"}} variant="subtitle"> taylorsullivanbows@gmail.com</Typography>
-                </Stack>
-              </CardContent>
-            </Card>
+   
 
-        </Grid>
-          </Grid>
-          <Card sx={{maxWidth: 370, minWidth: 210, minHeight: 210, display:"flex"}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
-              <CardMedia
-                component="img"
-                image="Taylor Sullivan Bows Logo-01.png"
-                alt="logo"
-            />
+  return (
+    
+<Box sx={{maxWidth:1100}} alignItems="center" justifyContent="center" m="auto" pt="75px">    
+      
+       
+     {this.addNewArticle(16,12,8,15,4, "Spotify: Which streaming service is best?")}
+     {this.addNewArticle(2,6,12,15,18, "Things 3")}
+     {this.addNewArticle(19,18,17,16,18, "Kayla's article hehe")}
+     {this.addNewArticle(3,3,17,10,11, "Kayla's article hehe 2")}
+     
+  
+     
+  <div style={{ width:"100%", margin: "0 auto", alignItems:"center"}} >
+          
+      {this.testData.map((item,idx) => (
+        
+      
+        
+      <Grid container spacing={0} direction="column" justifyContent="center" p="5px">
+          
+        <Card sx={{ minWidth: 370, width:"100%", maxHeight: 400}} >
+          <CardContent >
+             
                 
-            </Card>
-          </Stack>
-      </Box>
-      
+                   <Grid container spacing={3} style={{ display: "flex"}}>
+                       
+                       <Grid xs={4} item style={{  alignItems: "center" }}>
+                            
+                              <Doughnut data = {item.datastuff} options= {item.options}/>
+                             
+                        </Grid>
+                       
+                        
+                        <Grid xs={3} container item direction="column" sx={{maxWidth: 140}} >  
+                            {item.data.map((item, idx) => (<Grid item>
+                                <Typography sx={{ fontFamily: 'Arial'}} style={{color: "black"}} variant="body">{item.name}</Typography>
+                                <RatingBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
+                               </Grid>))}
+                        </Grid>
+                        
+                    
+                        <Grid xs={5} item  style={{ display: "flex", alignItems: "center"}}>
+                          <Typography style={{color:"black"}} sx={{ fontFamily: 'Arial', fontWeight:'bold'}} variant="h4"> 
+                            {item.title}
+                          </Typography>
+                        </Grid>
+                       
+                   </Grid>
+  
+               
+               
             
+            </CardContent> 
+          </Card>
+          
       
-      
-    </Box>
-    </div>
-      </div>
+        
+        
+        </Grid>
+      ))}
+    
+  </div>
+       
+</Box>
+    
     );
   }
 }
-export default Description;
+export default Contact;
+//<Typography sx={{ fontFamily: 'Georgia', weight:'bold'}} style={{color: "black"}} variant="h5" alignItems="left" align = "left">{item.name}</Typography>
+//<RatingBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
+//<Typography style={{color:"black"}} sx={{ fontFamily: 'Georgia'}} variant="h3" align="right" alignItems="right" justifyContent="right" display='flex' m='auto'> 
+ //               {item.title}
+ //             </Typography>

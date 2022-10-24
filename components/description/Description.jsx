@@ -23,6 +23,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HeadphonesIcon from '@mui/icons-material/Headphones';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import EastIcon from '@mui/icons-material/East';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import {
   HashRouter, Route, Routes, Link, Switch,

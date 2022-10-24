@@ -48,6 +48,7 @@ import About from '../about/About';
 import Description from '../description/Description';
 import Gallery from '../gallery/Gallery';
 import ElevateAppBar from '../states/ElevateAppBar';
+import Articles from '../articles/Articles';
 
 
 class States extends React.Component {
@@ -77,6 +78,7 @@ class States extends React.Component {
           <Route path="/about" component={About} />
           <Route path="/services" component={Services} />
           <Route path="/contact" component={Contact} />
+          <Route path="/articles" component={Articles} />
           <Route path="/" component={Description} />
           </Switch>
       </HashRouter>
@@ -90,7 +92,7 @@ class States extends React.Component {
               
               <Stack display="flex" direction="column">
                 <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Garamond' }} variant="h5" align="left"> 
-                   Taylor Sullivan Bows
+                   Music Making Cents
                 </Typography> 
                 
                 <p>

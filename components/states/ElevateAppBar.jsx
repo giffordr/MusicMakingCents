@@ -22,8 +22,8 @@ import {
 } from 'react-router-dom';
 
 
-const pages = ['Services', 'About', 'Contact'];
-const pages2 = ['Home', 'Services', 'About', 'Contact'];
+const pages = ['Articles', 'About', 'Contact'];
+const pages2 = ['Home', 'Articles', 'About', 'Contact'];
 
 
 
@@ -99,22 +99,22 @@ export default function ElevateAppBar(props) {
                 <Box sx={{flexGrow: 1, justifyContent: 'center', display: { xs: 'none', md: 'flex' } }} display="flex" alignItems="left" justifyContent="center" mx = 'auto'>
                   <a href="#/" style= {{color: '#444242'}}>
                     <Typography style={{color:"#444242"}} sx={{fontFamily: 'Georgia', fontWeight: '530' }} variant="h4"> 
-                     Taylor Sullivan Bows
+                     Music Making Cents
                     </Typography>
                     </a>
                 </Box>
                 
                 <Box sx={{flexGrow: 1, justifyContent: 'right', display: { xs: 'none', md: 'flex' }}} display="flex" alignItems="right" justifyContent="right">
                   <a href="#/Contact" style= {{color: '#444242', fontFamily:'Georgia'}}>
-                    <Button  variant="contained" sx={{fontFamily: 'Georgia', textTransform: 'none', borderRadius:0 }} style={{ border: "none", boxShadow: "none", borderRadius:0 }} square={true}>
-                       Contact Taylor
+                    <Button  variant="contained" sx={{fontFamily: 'Arial', textTransform: 'none' }} >
+                       Contact
                     </Button>
                   </a>
                 </Box>
                 <Box sx={{flexGrow: 1, justifyContent: 'left', display: { xs: 'flex', md: 'none' }}} display="flex" alignItems="left" justifyContent="left">
                   <a href="#/Contact" style= {{color: '#444242', fontFamily:'Georgia'}}>
-                    <Button  variant="contained" sx={{fontFamily: 'Georgia', textTransform: 'none'}} style={{ border: "none", boxShadow: "none", borderRadius:0 }} square={true}>
-                       Contact Taylor
+                    <Button  variant="contained" sx={{fontFamily: 'Arial', textTransform: 'none'}} >
+                       Contact
                     </Button>
                   </a>
                 </Box>

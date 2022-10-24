@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    TaylorSullivanBows: './TaylorSullivanBows.jsx',
+    MusicMakingCents: './MMC.jsx',
   },
   module: {
     rules: [
