@@ -91,18 +91,21 @@ class States extends React.Component {
             <Stack justifyContent="space-between" direction="row" display="flex" p='2vmax'> 
               
               <Stack display="flex" direction="column">
-                <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Garamond' }} variant="h5" align="left"> 
+                <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial' }} variant="h5" align="left"> 
                    Music Making Cents
                 </Typography> 
                 
                 <p>
                     <Stack align-items="left" justifyContent="space-between" direction="row" display="flex"> 
-                     <Stack display="flex" direction="column" spacing={0} align="left">
-                       <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Garamond' }} variant="body" align="left"> 
-                         1689 Amberwood Dr.
+                     <Stack display="flex" direction="row" spacing={1} align="left">
+                       <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', fontSize: 11}} variant="body" align="left"> 
+                         Privacy Policy |
                         </Typography>
-                       <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Garamond' }} variant="body" align="left"> 
-                         South Pasadena, CA 91030
+                       <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', fontSize: 11}} variant="body" align="left"> 
+                         Copywrite |
+                        </Typography>
+                       <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', fontSize: 11}} variant="body" align="left"> 
+                         Cookies
                         </Typography>
                      </Stack>
                     </Stack> 

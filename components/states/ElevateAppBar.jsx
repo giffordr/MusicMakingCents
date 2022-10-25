@@ -84,10 +84,10 @@ export default function ElevateAppBar(props) {
                 <Box sx={{ flexGrow: 0.73, display: { xs: 'none', md: 'flex' } }} display="flex" alignItems="left" justifyContent="left" >
                   {pages.map((page) => (
 
-                  <a href={"#/"+page} style= {{color: '#444242', fontFamily:'Georgia'}}>
+                  <a href={"#/"+page} style= {{color: '#444242', fontFamily:'Arial'}}>
                     <Button
                       key={page}
-                      sx={{ my: 2, color: "#444242", display: 'block',fontFamily: 'Georgia', textTransform: 'none' }}
+                      sx={{ my: 2, color: "#444242", display: 'block',fontFamily: 'Arial', textTransform: 'none' }}
                       
                     >
                       {page}
@@ -98,7 +98,7 @@ export default function ElevateAppBar(props) {
                 
                 <Box sx={{flexGrow: 1, justifyContent: 'center', display: { xs: 'none', md: 'flex' } }} display="flex" alignItems="left" justifyContent="center" mx = 'auto'>
                   <a href="#/" style= {{color: '#444242'}}>
-                    <Typography style={{color:"#444242"}} sx={{fontFamily: 'Georgia', fontWeight: '530' }} variant="h4"> 
+                    <Typography style={{color:"#444242"}} sx={{fontFamily: 'Arial', fontWeight: '530' }} variant="h4"> 
                      Music Making Cents
                     </Typography>
                     </a>

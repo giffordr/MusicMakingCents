@@ -17,6 +17,8 @@ import Stack from '@mui/material/Stack';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import CardActionArea from '@mui/material/CardActionArea';
 import Accordion from '@mui/material/Accordion';
 import Grid from '@mui/material/Grid';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -37,6 +39,8 @@ import { Doughnut } from 'react-chartjs-2';
 import "chartjs-plugin-doughnut-innertext";
 import 'chartjs-plugin-style';
 //import DoughnutText from './DoughnutText.jsx';
+
+import Spotify from '../articles/streamingServices/spotify/Spotify';
 
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -192,9 +196,15 @@ render() {
    
 
   return (
+      
     
 <Box sx={{maxWidth:1100}} alignItems="center" justifyContent="center" m="auto" pt="75px">    
-      
+
+    <HashRouter >
+          <Switch>
+              <Route path="/Articles/Streaming-Services/Spotify" component={Spotify} /> 
+          </Switch>
+    </HashRouter>
        
      {this.addNewArticle(16,12,8,15,4, "Spotify: Which streaming service is best?")}
      {this.addNewArticle(2,6,12,15,18, "Things 3")}
@@ -211,8 +221,9 @@ render() {
     <span>
       <Grid container spacing={0} direction="column" justifyContent="center" p="5px" sx={{ display: { xs: 'none', md: 'flex' } }}>
           
-        <Card sx={{ minWidth: 350, width:"100%", maxHeight: 400}} >
-          <CardContent >
+        <Card sx={{ minWidth: 350, width:"100%", maxHeight: 400, "&:hover": { transform: 'scale(1.01)', transition: 'transform .4s'} }} >
+          <CardActionArea href="#/Articles/Streaming-Services/Spotify">
+            <CardContent >
 
                    <Grid container spacing={3} style={{ display: "flex"}}>
                        
@@ -231,7 +242,7 @@ render() {
                         </Grid>
                         
                     
-                        <Grid xs={5} container item direction="row" justifyContent="space-between" alignItems="flex-end">
+                    <Grid xs={5} container item direction="row" justifyContent="space-between" alignItems="flex-end" >
                             
                           <Grid item xs={12}>
                                 <Typography style={{color:"black"}} sx={{ fontFamily: 'Arial', fontWeight:'bold'}} variant="h4"> 
@@ -241,7 +252,7 @@ render() {
                           </Grid>
                               
                           <Grid item >
-                              <Box  display="flex" justifyContent="flex-end">
+                              <Box  display="flex" justifyContent="flex-end" >
                                   <EastIcon fontSize="large" />
                               </Box>
                           </Grid>
@@ -250,7 +261,9 @@ render() {
                        
                    </Grid>
 
-            </CardContent> 
+               </CardContent> 
+              
+           </CardActionArea>
           </Card>
 
      </Grid>
