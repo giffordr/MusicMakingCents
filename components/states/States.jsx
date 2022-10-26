@@ -48,12 +48,24 @@ import Gallery from '../gallery/Gallery';
 import ElevateAppBar from '../states/ElevateAppBar';
 import Articles from '../articles/Articles';
 import ArticleList from '../articles/articleList';
+
+// Import all articles
+
 import Spotify from '../articles/streamingServices/spotify/Spotify';
 
 
 class States extends React.Component {
-
-
+constructor(props){
+  super(props);
+  this.state={
+    articleIndex: 1
+  }
+  this.changeIndex = this.changeIndex.bind(this);
+}
+  
+  changeIndex = (newIndex) =>{
+    this.setState({articleIndex: newIndex})
+  }
   handleButtonClick(buttonName, event) {
     this.setState({ buttonWasClicked: buttonName });
   }
@@ -78,8 +90,8 @@ class States extends React.Component {
           <Route path="/about" component={About} />
           <Route path="/services" component={Services} />
           <Route path="/contact" component={Contact} />
-          <Route path="/Articles" component={ArticleList} />
-          <Route path="/Streaming-Services/Spotify" component={Spotify} /> 
+          <Route path="/Articles" render={props => <ArticleList changeIndex={this.changeIndex} {...props} /> } />
+          <Route path="/Streaming-Services/Spotify/:title" render={props => <Spotify articleIndex={this.state.articleIndex} {...props} /> } /> 
           <Route path="/" component={Description} />
           </Switch>
       </HashRouter>

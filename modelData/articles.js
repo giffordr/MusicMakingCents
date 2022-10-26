@@ -201,10 +201,21 @@ addNewArticle(3,3,17,10,11, "Streaming-Services", "Apple-Music", "Making Cents T
          return (photo.user_id === userId);
       });
    };
+   
+   var specificArticleModel = function(articleTitle) {
+      return articles.filter(function (article) {
+         console.log(article.title);
+         console.log(articleTitle);
+         let newArticleTitle = article.title.replace(/[.,\/#!$%\?^&\*;{}=\-_`~()]/g,"");
+         console.log(newArticleTitle);
+         return (newArticleTitle === articleTitle);
+      });
+   };
 
 
    var articleModels =  {
       articleListModel: articleListModel,
+      specificArticleModel: specificArticleModel,
 
       
    };

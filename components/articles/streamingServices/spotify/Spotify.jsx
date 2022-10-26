@@ -34,26 +34,35 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 class Spotify extends React.Component {
+constructor(props){
+    super(props);
+
+    this.state={
+        model: window.articleModels.specificArticleModel(this.props.match.params.title)
+}
+}
 
 componentDidMount(){
           window.scrollTo({ top: 0, behavior: "smooth" })
 }
 render() {
   
-  return (
+  console.log(window.articleModels.specificArticleModel(this.props.match.params.title));
+    console.log(window.articleModels.specificArticleModel(this.props.match.params.title)[0].title);
+    return (
     
     
     <Card id = 'Header' sx={{maxWidth: '100%', height: '20%', minHeight: 200, maxHeight: 700}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
          <div style={{ display:'flex', justifyContent:'center', alignItems:'center'}}>
              <CardContent sx={{alignItems: 'center', justifyContent:'center', mx:'15vmin', mt:'20vmin', mb:'15vmin'}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}}>   
                   <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', display: { xs: 'none', md: 'flex' } }} variant="h4" align="center" alignItems="center" justifyContent="center" m='auto'> 
-                       TODO: Pass title index to article in callback function. Print title here
+                       {this.state.model[0].title}
                   </Typography>
                    <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', display: { xs: 'flex', md: 'none' } }} variant="h5" align="center" alignItems="center" justifyContent="center" m='auto'> 
-                       TODO: Pass title index to article in callback function. Print title here
+                       {this.state.model[0].title}
                   </Typography>
                   <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', fontSize: 12}} variant="body" align="center" alignItems="center" justifyContent="center" m='auto'> 
-                       Written By: The Making Cents Team
+                       Written By: {this.state.model[0].author}
                   </Typography>
                   <p></p>
                   <div>
