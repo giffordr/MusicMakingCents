@@ -41,6 +41,7 @@
 (function() {
 
    // Instantiate 'articles' list.
+   
    var articles = [];
    
    var colors =   {
@@ -58,7 +59,8 @@
           };
    
    // Create function to add new article to 'articles' list
-   var addNewArticle = (TTP, Cost, Exposure, Difficulty, Profit, ArticleTitle) => {
+   
+   var addNewArticle = (TTP, Cost, Exposure, Difficulty, Profit, Header, SubHeader, Author, DateCreated, ArticleTitle) => {
   
        let score = TTP + Cost + Exposure + Difficulty + Profit;
      
@@ -126,7 +128,7 @@
          };
        });
        
-       articles.push({title: ArticleTitle, data: tempData, datastuff: {
+       articles.push({title: ArticleTitle, header: Header, subHeader: SubHeader, author: Author, dateCreated: DateCreated, data: tempData, datastuff: {
              labels: chartLabels,
              datasets: [
                {
@@ -174,12 +176,14 @@
     
 };
 
+// Add all articles here   
+   
+addNewArticle(16,12,8,15,4,"Streaming-Services", "Spotify", "Making Cents Team", "(10/25/22)", "Spotify: Which streaming service is best?");
+addNewArticle(2,6,12,15,18, "Streaming-Services", "Apple-Music", "Making Cents Team", "(10/26/22)", "Apple Music: Is it worth the trouble?");
+addNewArticle(19,18,17,16,18, "Streaming-Services", "Apple-Music", "Making Cents Team", "(10/26/22)", "Releasing and album or and EP?");
+addNewArticle(3,3,17,10,11, "Streaming-Services", "Apple-Music", "Making Cents Team", "(10/26/22)", "Apple Music: Is it worth the trouble?");
+
    var articleListModel = function() {
-      addNewArticle(16,12,8,15,4, "Spotify: Which streaming service is best?");
-      addNewArticle(2,6,12,15,18, "Things 3");
-      addNewArticle(19,18,17,16,18, "Kayla's article hehe");
-      addNewArticle(3,3,17,10,11, "Kayla's article hehe 2");
-      
       return articles;
    };
 

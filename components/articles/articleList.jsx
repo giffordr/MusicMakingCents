@@ -78,7 +78,7 @@ render() {
       <Grid container spacing={0} direction="column" justifyContent="center" p="5px" sx={{ display: { xs: 'none', md: 'flex' } }}>
           
         <Card sx={{ minWidth: 350, width:"100%", maxHeight: 400, "&:hover": { transform: 'scale(1.01)', transition: 'transform .4s'} }} >
-          <CardActionArea href="#/Streaming-Services/Spotify">
+          <CardActionArea href={"#/"+item.header+"/"+item.subHeader}>
             <CardContent >
 
                    <Grid container spacing={3} style={{ display: "flex"}}>

@@ -22,7 +22,6 @@ import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 
-
 import InfoIcon from '@mui/icons-material/Info';
 import PeopleIcon from '@mui/icons-material/People';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -35,12 +34,11 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import BusinessIcon from '@mui/icons-material/Business';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-
 import {
   HashRouter, Route, Routes, Link, Switch,
 } from 'react-router-dom';
 
-
+// Import all components
 
 import Services from '../services/Services';
 import Contact from '../contact/Contact';

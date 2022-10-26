@@ -46,17 +46,21 @@ render() {
     <Card id = 'Header' sx={{maxWidth: '100%', height: '20%', minHeight: 200, maxHeight: 700}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
          <div style={{ display:'flex', justifyContent:'center', alignItems:'center'}}>
              <CardContent sx={{alignItems: 'center', justifyContent:'center', mx:'15vmin', mt:'20vmin', mb:'15vmin'}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}}>   
-              <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Georgia', display: { xs: 'none', md: 'flex' } }} variant="h4" align="center" alignItems="center" justifyContent="center" m='auto'> 
-                   Violin-family bow rehair and repair in the Los Angeles area
-              </Typography>
-               <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Georgia', display: { xs: 'flex', md: 'none' } }} variant="h5" align="center" alignItems="center" justifyContent="center" m='auto'> 
-                   Violin-family bow rehair and repair in the Los Angeles area
-              </Typography>
-                 {window.articleModels.articleListModel().map((item, idx) => (
-        <p>
-                                <Typography sx={{ fontFamily: 'Arial'}} style={{color: "black"}} variant="body">{item.title}</Typography>
-         </p>                       
-                               ))}
+                  <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', display: { xs: 'none', md: 'flex' } }} variant="h4" align="center" alignItems="center" justifyContent="center" m='auto'> 
+                       TODO: Pass title index to article in callback function. Print title here
+                  </Typography>
+                   <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', display: { xs: 'flex', md: 'none' } }} variant="h5" align="center" alignItems="center" justifyContent="center" m='auto'> 
+                       TODO: Pass title index to article in callback function. Print title here
+                  </Typography>
+                  <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', fontSize: 12}} variant="body" align="center" alignItems="center" justifyContent="center" m='auto'> 
+                       Written By: The Making Cents Team
+                  </Typography>
+                  <p></p>
+                  <div>
+                      <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial',  }} variant="body" align="center" alignItems="center" justifyContent="center" m='auto'> 
+                            If you've ever wondered about streaming services, as a way of making passive income off of your newly released EP, but don't know where to start... this is the article for you.
+                      </Typography>
+                  </div>      
             </CardContent>
           </div>
       </Card>
