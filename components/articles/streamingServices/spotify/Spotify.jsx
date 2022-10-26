@@ -32,6 +32,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 
 
+
 class Spotify extends React.Component {
 
 componentDidMount(){
@@ -51,19 +52,14 @@ render() {
                <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Georgia', display: { xs: 'flex', md: 'none' } }} variant="h5" align="center" alignItems="center" justifyContent="center" m='auto'> 
                    Violin-family bow rehair and repair in the Los Angeles area
               </Typography>
+                 {window.articleModels.articleListModel().map((item, idx) => (
+        <p>
+                                <Typography sx={{ fontFamily: 'Arial'}} style={{color: "black"}} variant="body">{item.title}</Typography>
+         </p>                       
+                               ))}
             </CardContent>
           </div>
       </Card>
-     
-    
-      
-   
-            
-      
-      
-   
-      
-     
     
     );
   }

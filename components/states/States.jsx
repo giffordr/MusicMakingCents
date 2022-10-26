@@ -49,6 +49,8 @@ import Description from '../description/Description';
 import Gallery from '../gallery/Gallery';
 import ElevateAppBar from '../states/ElevateAppBar';
 import Articles from '../articles/Articles';
+import ArticleList from '../articles/articleList';
+import Spotify from '../articles/streamingServices/spotify/Spotify';
 
 
 class States extends React.Component {
@@ -78,7 +80,8 @@ class States extends React.Component {
           <Route path="/about" component={About} />
           <Route path="/services" component={Services} />
           <Route path="/contact" component={Contact} />
-          <Route path="/articles" component={Articles} />
+          <Route path="/Articles" component={ArticleList} />
+          <Route path="/Streaming-Services/Spotify" component={Spotify} /> 
           <Route path="/" component={Description} />
           </Switch>
       </HashRouter>
