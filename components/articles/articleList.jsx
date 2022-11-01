@@ -50,8 +50,11 @@ class ArticleList extends React.Component {
 constructor(props){
     super(props);
     this.state ={
-        index: 1
-    }
+        index: 1,
+        search: '',
+        category: '',
+    };
+  this.handleChangeBound = event => this.handleChange(event);
 }
   
 handleClose = (event, reason) => {
@@ -60,6 +63,10 @@ handleClose = (event, reason) => {
     }
     this.setState({open: false});
   };
+
+handleChange(event) {
+  this.setState({search: event.target.value});
+}
     
 handleClick =(index) => {
     //this.props.changeIndex(this.state.index)
@@ -78,11 +85,14 @@ render() {
     
 <Box sx={{maxWidth:1100}} alignItems="center" justifyContent="center" m="auto" pt="75px">    
 
+  <label htmlFor="inID">Search Articles: </label>
+  <input id="inID" type="text" value={this.state.search} onChange={this.handleChangeBound}/>
 
-     
+  {window.articleModels.articleListModel().find(element => element.title.toLowerCase().includes(this.state.search.toLowerCase())) ?
+  
   <div style={{ width:"100%", margin: "0 auto", alignItems:"center"}} >
-          
-      {window.articleModels.articleListModel().map((item,idx) => (
+      {window.articleModels.articleListModel().sort((a,b) => a.title.localeCompare(b.title)).filter(element => element.title.toLowerCase().includes(this.state.search.toLowerCase())).map((item,idx) => (   
+      //{window.articleModels.articleListModel().map((item,idx) => (
         
       
     <span>
@@ -174,7 +184,7 @@ render() {
    
       ))}
     
-  </div>
+  </div> : <div> No Results Found </div> }
        
 </Box>
     
