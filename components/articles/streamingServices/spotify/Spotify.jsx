@@ -38,7 +38,7 @@ constructor(props){
     super(props);
 
     this.state={
-        model: window.articleModels.specificArticleModel(this.props.match.params.title)
+        model: window.articleModels.specificArticleModel(this.props.match.params.title)[0]
 }
 }
 
@@ -47,22 +47,21 @@ componentDidMount(){
 }
 render() {
   
-  console.log(window.articleModels.specificArticleModel(this.props.match.params.title));
-    console.log(window.articleModels.specificArticleModel(this.props.match.params.title)[0].title);
+  
     return (
     
     
     <Card id = 'Header' sx={{maxWidth: '100%', height: '20%', minHeight: 200, maxHeight: 700}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
          <div style={{ display:'flex', justifyContent:'center', alignItems:'center'}}>
-             <CardContent sx={{alignItems: 'center', justifyContent:'center', mx:'15vmin', mt:'20vmin', mb:'15vmin'}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}}>   
+             <CardContent sx={{alignItems: 'center', justifyContent:'center', mx:'15vmin', mt:'10vmin', mb:'15vmin'}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}}>   
                   <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', display: { xs: 'none', md: 'flex' } }} variant="h4" align="center" alignItems="center" justifyContent="center" m='auto'> 
-                       {this.state.model[0].title}
+                       {this.state.model.title}
                   </Typography>
                    <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', display: { xs: 'flex', md: 'none' } }} variant="h5" align="center" alignItems="center" justifyContent="center" m='auto'> 
-                       {this.state.model[0].title}
+                       {this.state.model.title}
                   </Typography>
                   <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', fontSize: 12}} variant="body" align="center" alignItems="center" justifyContent="center" m='auto'> 
-                       Written By: {this.state.model[0].author}
+                       Written By: {this.state.model.author}
                   </Typography>
                   <p></p>
                   <div>
@@ -78,33 +77,4 @@ render() {
   }
 }
 export default Spotify;
-      /*</div>
-      <div>
-        <Card sx={{maxWidth: '100%', maxHeight: 700, position: 'relative'}} style={{ border: "none", boxShadow: "none" }} square={true}>
-          <CardMedia
-            component="img"
-            image="EEDAA25B-220C-4103-B764-44427E4CB54D_1_105_c.jpg"
-            alt="Working in shop2"
-          />
-          <Box
-            sx={{
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              bgcolor: 'rgba(0, 0, 0, 0)',
-              color: 'white',
-              padding: '10vmax',
-            }}
-            alignItems="center" justifyContent="center" m="auto"
-          >
-            <Grid container justify="center" direction="column" alignItems="center" m="auto">
-                <Typography variant="h4" align="center"> Have your bow repaired by someone that you trust</Typography>
-                <p><Button href="/#/About" color="success" variant="contained" >About Me</Button></p>
-            </Grid>
-            
-          </Box>
-        </Card>
-      </div>
-      </div>*/
+     

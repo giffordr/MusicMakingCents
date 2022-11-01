@@ -36,4 +36,5 @@ module.exports = {
     filename: '[name].bundle.js',
   },
   mode: 'development',
+  
 };

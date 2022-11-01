@@ -47,45 +47,50 @@ import ArticleList from '../articles/articleList';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 
-class Contact extends React.Component {
-  
-handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    this.setState({open: false});
-  };
+class Article extends React.Component {
+    constructor(props){
+    super(props);
+
+    this.state={
+        model: window.articleModels.specificArticleModel(this.props.match.params.title)[0]
+}
+}
 
 componentDidMount(){
           window.scrollTo({ top: 0, behavior: "smooth" })
-};
-  
-
-
- 
+}
 render() {
-   
-
-  return (
-      
+  
+  
+    return (
     
-<Box sx={{maxWidth:1100}} alignItems="center" justifyContent="center" m="auto" pt="75px">    
-
-    <HashRouter >
-          <Switch>
-              <Route path="/Articles" component={ArticleList} />
-              <Route path="/Streaming-Services/Spotify" component={Spotify} /> 
-          </Switch>
-    </HashRouter>
-       
-     
-       
-</Box>
+    
+    <Card id = 'Header' sx={{maxWidth: '100%', height: '20%', minHeight: 200, maxHeight: 700}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
+         <div style={{ display:'flex', justifyContent:'center', alignItems:'center'}}>
+             <CardContent sx={{alignItems: 'center', justifyContent:'center', mx:'15vmin', mt:'10vmin', mb:'15vmin'}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}}>   
+                  <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', display: { xs: 'none', md: 'flex' } }} variant="h4" align="center" alignItems="center" justifyContent="center" m='auto'> 
+                       {this.state.model.title}
+                  </Typography>
+                   <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', display: { xs: 'flex', md: 'none' } }} variant="h5" align="center" alignItems="center" justifyContent="center" m='auto'> 
+                       {this.state.model.title}
+                  </Typography>
+                  <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', fontSize: 12}} variant="body" align="center" alignItems="center" justifyContent="center" m='auto'> 
+                       Written By: {this.state.model.author}
+                  </Typography>
+                  <p></p>
+                  <div>
+                      <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial',  }} variant="body" align="center" alignItems="center" justifyContent="center" m='auto'> 
+                            <Spotify/>
+                      </Typography>
+                  </div>      
+            </CardContent>
+          </div>
+      </Card>
     
     );
   }
 }
-export default Contact;
+export default Article;
 //<Typography sx={{ fontFamily: 'Georgia', weight:'bold'}} style={{color: "black"}} variant="h5" alignItems="left" align = "left">{item.name}</Typography>
 //<RatingBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
 //<Typography style={{color:"black"}} sx={{ fontFamily: 'Georgia'}} variant="h3" align="right" alignItems="right" justifyContent="right" display='flex' m='auto'> 

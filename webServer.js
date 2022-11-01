@@ -12,16 +12,20 @@
 /* jshint node: true */
 
 var express = require('express');
+const prerender = require('prerender');
+const server = prerender();
+server.start();
 
-var portno = 3000;   // Port number to use
+var portno = 3001;   // Port number to use
 
 var app = express();
 
 // We have the express static module (http://expressjs.com/en/starter/static-files.html) do all
 // the work for us.
 app.use(express.static(__dirname));
+app.use(require('prerender-node'));
 
-var server = app.listen(portno, function () {
-  var port = server.address().port;
+var server2 = app.listen(portno, function () {
+  var port = server2.address().port;
   console.log('Listening at http://localhost:' + port + ' exporting the directory ' + __dirname);
 });

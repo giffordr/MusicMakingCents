@@ -8,6 +8,7 @@
     "build": "webpack --devtool eval-cheap-module-source-map --output-pathinfo",
     "build:w": "webpack --devtool eval-cheap-module-source-map --output-pathinfo --watch",
     "lint": "eslint *.jsx components/*/*.jsx || exit 0"
+    
   },
   "author": "Ray Gifford <giffordr@alumni.stanford.edu> ",
   "license": "ISC",
@@ -23,6 +24,8 @@
     "chartjs-plugin-style": "^0.5.0",
     "express": "^4.17.2",
     "file-loader": "^6.2.0",
+    "prerender": "^5.20.0",
+    "prerender-node": "^3.5.0",
     "prismjs": "^1.26.0",
     "react": "^17.0.2",
     "react-audio-player": "^0.17.0",

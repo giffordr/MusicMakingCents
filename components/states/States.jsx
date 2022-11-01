@@ -35,7 +35,7 @@ import BusinessIcon from '@mui/icons-material/Business';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 import {
-  HashRouter, Route, Routes, Link, Switch,
+  HashRouter, BrowserRouter, Route, Routes, Link, Switch,
 } from 'react-router-dom';
 
 // Import all components
@@ -46,13 +46,13 @@ import About from '../about/About';
 import Description from '../description/Description';
 import Gallery from '../gallery/Gallery';
 import ElevateAppBar from '../states/ElevateAppBar';
-import Articles from '../articles/Articles';
+import Article from '../articles/Article';
 import ArticleList from '../articles/articleList';
 
 // Import all articles
 
 import Spotify from '../articles/streamingServices/spotify/Spotify';
-
+import AppleMusic from '../articles/streamingServices/appleMusic/AppleMusic';
 
 class States extends React.Component {
 constructor(props){
@@ -89,9 +89,11 @@ constructor(props){
           <Route path="/home" component={Description} /> 
           <Route path="/about" component={About} />
           <Route path="/services" component={Services} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/Articles" render={props => <ArticleList changeIndex={this.changeIndex} {...props} /> } />
-          <Route path="/Streaming-Services/Spotify/:title" render={props => <Spotify articleIndex={this.state.articleIndex} {...props} /> } /> 
+          <Route path="/Contact" component={Contact} />
+          <Route path="/articles" render={props => <ArticleList changeIndex={this.changeIndex} {...props} /> } />
+          <Route path="/articles/:header/:subheader/:title" render={props => <Spotify articleIndex={this.state.articleIndex} {...props} /> } />
+          <Route path="/:header/:subheader/:title" render={props => <AppleMusic articleIndex={this.state.articleIndex} toRender= {Services} {...props} /> } /> 
+          
           <Route path="/" component={Description} />
           </Switch>
       </HashRouter>
