@@ -41,6 +41,7 @@ import 'chartjs-plugin-style';
 //import DoughnutText from './DoughnutText.jsx';
 
 import Spotify from '../articles/streamingServices/spotify/Spotify';
+import AppleMusic from '../articles/streamingServices/appleMusic/AppleMusic';
 import ArticleList from '../articles/articleList';
 
 
@@ -52,15 +53,26 @@ class Article extends React.Component {
     super(props);
 
     this.state={
-        model: window.articleModels.specificArticleModel(this.props.match.params.title)[0]
+        model: window.articleModels.specificArticleModel(this.props.match.params.title)[0],
+        name: this.props.match.params.subheader,
+        fragment: <Spotify/>,
 }
 }
 
 componentDidMount(){
           window.scrollTo({ top: 0, behavior: "smooth" })
 }
+
+
+ 
 render() {
-  
+    
+    if (this.state.name === 'Spotfiy') {
+                        this.state.fragment = <Spotify/>
+                       }
+    if (this.state.name === 'Apple-Music') {
+                        this.state.fragment = <AppleMusic/>
+                       }
   
     return (
     
@@ -79,8 +91,8 @@ render() {
                   </Typography>
                   <p></p>
                   <div>
-                      <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial',  }} variant="body" align="center" alignItems="center" justifyContent="center" m='auto'> 
-                            <Spotify/>
+                      <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial',  }} variant="body" align="center" alignItems="center" justifyContent="center" m='auto'>
+                        {this.state.fragment}
                       </Typography>
                   </div>      
             </CardContent>
@@ -91,6 +103,7 @@ render() {
   }
 }
 export default Article;
+//{window.articleModels.articleListModel().map((item,idx) => ( 
 //<Typography sx={{ fontFamily: 'Georgia', weight:'bold'}} style={{color: "black"}} variant="h5" alignItems="left" align = "left">{item.name}</Typography>
 //<RatingBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
 //<Typography style={{color:"black"}} sx={{ fontFamily: 'Georgia'}} variant="h3" align="right" alignItems="right" justifyContent="right" display='flex' m='auto'> 

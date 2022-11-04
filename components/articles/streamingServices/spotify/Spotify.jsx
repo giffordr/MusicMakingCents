@@ -38,8 +38,8 @@ constructor(props){
     super(props);
 
     this.state={
-        model: window.articleModels.specificArticleModel(this.props.match.params.title)[0]
-}
+        model:'' //window.articleModels.specificArticleModel(this.props.match.params.title)[0]
+};
 }
 
 componentDidMount(){

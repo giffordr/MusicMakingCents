@@ -1,4 +1,5 @@
 "use strict";
+
 /* jshint node: true */
 /*
  * Model data musicmakingcents blog.
@@ -39,6 +40,7 @@
  * 
  */
 (function() {
+   
 
    // Instantiate 'articles' list.
    
@@ -128,7 +130,11 @@
          };
        });
        
-       articles.push({title: ArticleTitle, header: Header, subHeader: SubHeader, author: Author, dateCreated: DateCreated, data: tempData, datastuff: {
+       articles.push({title: ArticleTitle, header: Header, subHeader: SubHeader, 
+                      author: Author, dateCreated: DateCreated,
+                      score: score, TTP: TTP, difficulty: Difficulty,
+                      reach: Exposure, cost: Cost, profit: Profit,
+                      data: tempData, datastuff: {
              labels: chartLabels,
              datasets: [
                {
@@ -183,8 +189,10 @@ addNewArticle(2,6,12,15,18, "Streaming-Services", "Apple-Music", "Making Cents T
 addNewArticle(19,18,17,16,18, "Streaming-Services", "Apple-Music", "Making Cents Team", "(10/26/22)", "Releasing and album or and EP?");
 addNewArticle(3,3,17,10,11, "Streaming-Services", "Apple-Music", "Making Cents Team", "(10/26/22)", "Apple Music: Is it worth the trouble?");
 
+   
    var articleListModel = function() {
-      return articles;
+      const articlesCopy = articles;
+      return articlesCopy;
    };
 
    var userModel = function(userId) {
@@ -228,4 +236,5 @@ addNewArticle(3,3,17,10,11, "Streaming-Services", "Apple-Music", "Making Cents T
       // by the browser into the DOM.
       window.articleModels = articleModels;
    }
+   
 })();

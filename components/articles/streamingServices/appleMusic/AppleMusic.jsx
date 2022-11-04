@@ -38,7 +38,7 @@ constructor(props){
     super(props);
 
     this.state={
-        model: window.articleModels.specificArticleModel(this.props.match.params.title)[0]
+        model:"" //window.articleModels.specificArticleModel(this.props.match.params.title)[0]
 }
 }
 
@@ -66,7 +66,7 @@ render() {
                   <p></p>
                   <div>
                       <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial',  }} variant="body" align="center" alignItems="center" justifyContent="center" m='auto'> 
-                            This is different {this.props.toRender}
+                            This is different and whatnot from the other one
                       </Typography>
                   </div>      
             </CardContent>

@@ -91,8 +91,7 @@ constructor(props){
           <Route path="/services" component={Services} />
           <Route path="/Contact" component={Contact} />
           <Route path="/articles" render={props => <ArticleList changeIndex={this.changeIndex} {...props} /> } />
-          <Route path="/articles/:header/:subheader/:title" render={props => <Spotify articleIndex={this.state.articleIndex} {...props} /> } />
-          <Route path="/:header/:subheader/:title" render={props => <AppleMusic articleIndex={this.state.articleIndex} toRender= {Services} {...props} /> } /> 
+          <Route path="/:header/:subheader/:title" render={props => <Article articleIndex={this.state.articleIndex} {...props} /> } /> 
           
           <Route path="/" component={Description} />
           </Switch>

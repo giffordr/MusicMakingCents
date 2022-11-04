@@ -5,10 +5,15 @@ import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import List from '@mui/material/List';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
+import Switch from '@mui/material/Switch';
 import Snackbar from '@mui/material/Snackbar';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import ListItem from '@mui/material/ListItem';
+import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
@@ -29,7 +34,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HeadphonesIcon from '@mui/icons-material/Headphones';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import {
-  HashRouter, Route, Routes, Link, Switch,
+  HashRouter, Route, Routes, Link,
 } from 'react-router-dom';
 
 import CloseIcon from '@mui/icons-material/Close';
@@ -47,14 +52,34 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 
 class ArticleList extends React.Component {
+  
+  
 constructor(props){
     super(props);
+  
     this.state ={
         index: 1,
         search: '',
         category: '',
+        sortScore: false,
+        sortTitle: false,
+        sortTTP: false,
+        sortCost: false,
+        sortReach: false,
+        sortDifficulty: false,
+        sortProfit: false,        
     };
+  this.listUnsorted = window.articleModels.articleListModel();
+  
+  
   this.handleChangeBound = event => this.handleChange(event);
+  this.handleSorting = this.handleSorting.bind(this);
+  this.handleClickScore = this.handleClickScore.bind(this);
+  this.handleClickTTP = this.handleClickTTP.bind(this);
+  this.handleClickCost = this.handleClickCost.bind(this);
+  this.handleClickProfit = this.handleClickProfit.bind(this);
+  this.handleClickReach = this.handleClickReach.bind(this);
+  this.handleClickDifficulty = this.handleClickDifficulty.bind(this);
 }
   
 handleClose = (event, reason) => {
@@ -64,34 +89,150 @@ handleClose = (event, reason) => {
     this.setState({open: false});
   };
 
+
+
+  
 handleChange(event) {
   this.setState({search: event.target.value});
 }
+
+handleSorting(array) {
+
+  const original = array.slice();
+  let sortedArray = array.slice();
+  const unsortedArray = this.listUnsorted;
+  
+  if(this.state.sortScore === true)
+  {
+       sortedArray = this.sortByScore(original)
+  }
+  if(this.state.sortTitle === true)
+  {
+       sortedArray = this.sortByTitle(original)
+  }
+  if(this.state.sortTTP === true)
+  {
+      sortedArray = this.sortByTTP(original)
+  }
+  if(this.state.sortCost === true)
+  {
+       sortedArray = this.sortByCost(original)
+  }
+  if(this.state.sortReach === true)
+  {
+       sortedArray = this.sortByReach(original)
+  }
+  if(this.state.sortDifficulty === true)
+  {
+       sortedArray = this.sortByDifficulty(original)
+  }
+  if(this.state.sortProfit === true)
+  {
+       sortedArray = this.sortByProfit(original)
+  }
+  else{
+     sortedArray = original;
+  }
+  
+  return sortedArray 
+}
     
-handleClick =(index) => {
+handleClickScore =(event) => {
     //this.props.changeIndex(this.state.index)
-    this.setState({index: index})
+    //let nameOfButton = event.target.id;
+    this.setState({sortScore: !this.state.sortScore})
+    
+}
+
+handleClickTTP =(event) => {
+    //this.props.changeIndex(this.state.index)
+    this.setState({sortTTP: !this.state.sortTTP})
+}
+handleClickCost =(event) => {
+    //this.props.changeIndex(this.state.index)
+    this.setState({sortCost: !this.state.sortCost})
+}
+handleClickProfit =(event) => {
+    //this.props.changeIndex(this.state.index)
+    this.setState({sortProfit: !this.state.sortProfit})
+}
+handleClickDifficulty =(event) => {
+    //this.props.changeIndex(this.state.index)
+    this.setState({sortDifficulty: !this.state.sortDifficulty})
+}
+handleClickReach =(event) => {
+    //this.props.changeIndex(this.state.index)
+    this.setState({sortReach: !this.state.sortReach})
 }
 
 componentDidMount(){
           window.scrollTo({ top: 0, behavior: "smooth" })
+          
 };
+
+sortByScore(array){
+  let sortedAr = array.sort((a,b) => b.score.toString().localeCompare(a.score, 'en', {numeric: true}));
+  return sortedAr;
+}
+sortByTitle(array){
+  let sortedAr = array.sort((a,b) => a.title.toString().localeCompare(b.title, 'en', {numeric: true}));
+  return sortedAr;
+}
+sortByTTP(array){
+  let sortedAr = array.sort((a,b) => b.TTP.toString().localeCompare(a.TTP, 'en', {numeric: true}));
+  return sortedAr;
+}
+sortByCost(array){
+  let sortedAr = array.sort((a,b) => b.cost.toString().localeCompare(a.cost, 'en', {numeric: true}));
+  return sortedAr;
+}
+sortByReach(array){
+  let sortedAr = array.sort((a,b) => b.reach.toString().localeCompare(a.reach, 'en', {numeric: true}));
+  return sortedAr;
+}
+sortByDifficulty(array){
+  let sortedAr = array.sort((a,b) => b.difficulty.toString().localeCompare(a.difficulty, 'en', {numeric: true}));
+  return sortedAr;
+}
+sortByProfit(array){
+  let sortedAr = array.sort((a,b) => b.profit.toString().localeCompare(a.profit, 'en', {numeric: true}));
+  return sortedAr;
+}
    
 render() {
-   
+   const theme  = createTheme({
+  palette: {
+    primary: {
+      main: 'rgba(75, 192, 192, 1)',
+      
+    },
+    
+  },
+});
 
   return (
       
     
-<Box sx={{maxWidth:1100}} alignItems="center" justifyContent="center" m="auto" pt="75px">    
+<Box sx={{maxWidth:1100}} alignItems="center" justifyContent="center" m="auto" pt="75px"> 
+  <Stack justifyContent="center" direction="row">
+    <TextField id="standard-basic" sx={{width: "20%"}} label="Search" variant="standard" value={this.state.search} onChange={this.handleChangeBound}/>
 
-  <label htmlFor="inID">Search Articles: </label>
-  <input id="inID" type="text" value={this.state.search} onChange={this.handleChangeBound}/>
-
+    <ThemeProvider theme={theme}>
+     <FormGroup row>
+       <FormControlLabel control={<Switch onChange={this.handleClickScore} color="primary"/>} label="Score" />
+       <FormControlLabel control={<Switch onChange={this.handleClickTTP} />} label="TTP" />
+       <FormControlLabel control={<Switch onChange={this.handleClickCost} />} label="Cost" />
+       <FormControlLabel control={<Switch onChange={this.handleClickReach} />} label="Reach" />
+       <FormControlLabel control={<Switch onChange={this.handleClickDifficulty} />} label="Difficulty" />
+       <FormControlLabel control={<Switch onChange={this.handleClickProfit} />} label="Profit" />
+     </FormGroup>
+    </ThemeProvider>
+  </Stack>
   {window.articleModels.articleListModel().find(element => element.title.toLowerCase().includes(this.state.search.toLowerCase())) ?
   
   <div style={{ width:"100%", margin: "0 auto", alignItems:"center"}} >
-      {window.articleModels.articleListModel().sort((a,b) => a.title.localeCompare(b.title)).filter(element => element.title.toLowerCase().includes(this.state.search.toLowerCase())).map((item,idx) => (   
+      
+    {this.handleSorting(window.articleModels.articleListModel()).filter(element => element.title.toLowerCase().includes(this.state.search.toLowerCase())).map((item,idx) => (   
       //{window.articleModels.articleListModel().map((item,idx) => (
         
       
@@ -184,7 +325,7 @@ render() {
    
       ))}
     
-  </div> : <div> No Results Found </div> }
+  </div> : <div> Sorry! We haven't posted an article on that topic yet. We'd love to hear your suggestions on what to cover next! Leave a suggestion here. </div> }
        
 </Box>
     
