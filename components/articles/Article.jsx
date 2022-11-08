@@ -2,16 +2,6 @@ import './Articles.css';
 import RatingBar from "./ratingBar.jsx";
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import List from '@mui/material/List';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import Snackbar from '@mui/material/Snackbar';
-import ListItem from '@mui/material/ListItem';
-import Paper from '@mui/material/Paper';
-import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Card from '@mui/material/Card';
@@ -19,15 +9,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import CardActionArea from '@mui/material/CardActionArea';
-import Accordion from '@mui/material/Accordion';
-import Grid from '@mui/material/Grid';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import EastIcon from '@mui/icons-material/East';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import HeadphonesIcon from '@mui/icons-material/Headphones';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
 import {
   HashRouter, Route, Routes, Link, Switch,
 } from 'react-router-dom';

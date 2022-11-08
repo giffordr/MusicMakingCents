@@ -2,37 +2,12 @@ import './States.css';
 //import logo from 'IMG_0004.png';
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import Paper from '@mui/material/Paper';
-import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import MenuIcon from '@mui/icons-material/Menu';
-import AppBar from '@mui/material/AppBar';
-import AdbIcon from '@mui/icons-material/Adb';
-import MenuItem from '@mui/material/MenuItem';
-import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
-
-import InfoIcon from '@mui/icons-material/Info';
-import PeopleIcon from '@mui/icons-material/People';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import MusicNoteIcon from '@mui/icons-material/MusicNote';
-import CollectionsIcon from '@mui/icons-material/Collections';
-import SmartphoneIcon from '@mui/icons-material/Smartphone';
-import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import BusinessIcon from '@mui/icons-material/Business';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 import {
   HashRouter, BrowserRouter, Route, Routes, Link, Switch,
@@ -40,13 +15,11 @@ import {
 
 // Import all components
 
-import Services from '../services/Services';
+
 import Contact from '../contact/Contact';
 import About from '../about/About';
 import Description from '../description/Description';
-import Gallery from '../gallery/Gallery';
 import ElevateAppBar from '../states/ElevateAppBar';
-import Article from '../articles/Article';
 import ArticleList from '../articles/articleList';
 
 // Import all articles
@@ -92,7 +65,7 @@ constructor(props){
           <Route path="/about" render={props => (
     <About {...props} title="About" />
   )}/> 
-          <Route path="/services" component={Services} />
+         
           <Route path="/contact" render={props => (
     <Contact {...props} title="Contact" />
   )}/> 
