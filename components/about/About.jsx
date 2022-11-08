@@ -41,6 +41,7 @@ class About extends React.Component {
 
 componentDidMount(){
            window.scrollTo({ top: 0, behavior: "smooth" })
+          document.title = ("Music Making Cents- " + this.props.title);
 }
 
  

@@ -86,14 +86,22 @@ constructor(props){
 
       <HashRouter >
           <Switch>
-          <Route path="/home" component={Description} /> 
-          <Route path="/about" component={About} />
+          <Route path="/home" render={props => (
+    <Description {...props} title="Home" />
+  )}/> 
+          <Route path="/about" render={props => (
+    <About {...props} title="About" />
+  )}/> 
           <Route path="/services" component={Services} />
-          <Route path="/Contact" component={Contact} />
-          <Route path="/articles" render={props => <ArticleList changeIndex={this.changeIndex} {...props} /> } />
+          <Route path="/contact" render={props => (
+    <Contact {...props} title="Contact" />
+  )}/> 
+          <Route path="/articles" render={props => <ArticleList changeIndex={this.changeIndex} {...props} title="Articles"/> } />
           <Route path="/:header/:subheader/:title" render={props => <Article articleIndex={this.state.articleIndex} {...props} /> } /> 
           
-          <Route path="/" component={Description} />
+          <Route path="/" render={props => (
+    <Description {...props} title="Home" />
+  )}/> 
           </Switch>
       </HashRouter>
       
