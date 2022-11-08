@@ -6,6 +6,7 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import List from '@mui/material/List';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { makeStyles } from "@mui/styles";
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Switch from '@mui/material/Switch';
@@ -14,6 +15,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import ListItem from '@mui/material/ListItem';
 import TextField from '@mui/material/TextField';
+import Tooltip2 from '@mui/material/Tooltip';
 import Paper from '@mui/material/Paper';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
@@ -32,6 +34,9 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import EastIcon from '@mui/icons-material/East';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HeadphonesIcon from '@mui/icons-material/Headphones';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import HelpIcon from '@mui/icons-material/Help';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import {
   HashRouter, Route, Routes, Link,
@@ -50,9 +55,16 @@ import Spotify from '../articles/streamingServices/spotify/Spotify';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+const useStyles = makeStyles({
+  content: {
+    justifyContent: "center"
+  }
+});
+
+
 
 class ArticleList extends React.Component {
-  
+
   
 constructor(props){
     super(props);
@@ -198,9 +210,12 @@ sortByProfit(array){
   let sortedAr = array.sort((a,b) => b.profit.toString().localeCompare(a.profit, 'en', {numeric: true}));
   return sortedAr;
 }
+
+
    
 render() {
-   const theme  = createTheme({
+
+const theme  = createTheme({
   palette: {
     primary: {
       main: 'rgba(75, 192, 192, 1)',
@@ -209,25 +224,45 @@ render() {
     
   },
 });
-
+  
+  
   return (
       
     
-<Box sx={{maxWidth:1100}} alignItems="center" justifyContent="center" m="auto" pt="75px"> 
-  <Stack justifyContent="center" direction="row">
-    <TextField id="standard-basic" sx={{width: "20%"}} label="Search" variant="standard" value={this.state.search} onChange={this.handleChangeBound}/>
-
-    <ThemeProvider theme={theme}>
-     <FormGroup row>
-       <FormControlLabel control={<Switch onChange={this.handleClickScore} color="primary"/>} label="Score" />
-       <FormControlLabel control={<Switch onChange={this.handleClickTTP} />} label="TTP" />
-       <FormControlLabel control={<Switch onChange={this.handleClickCost} />} label="Cost" />
-       <FormControlLabel control={<Switch onChange={this.handleClickReach} />} label="Reach" />
-       <FormControlLabel control={<Switch onChange={this.handleClickDifficulty} />} label="Difficulty" />
-       <FormControlLabel control={<Switch onChange={this.handleClickProfit} />} label="Profit" />
-     </FormGroup>
-    </ThemeProvider>
-  </Stack>
+<Box sx={{maxWidth:1100}} alignItems="center" justifyContent="center" m="auto" pt="75px">
+  <Accordion>
+    
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          sx={{
+          '& .MuiAccordionSummary-content': {
+          justifyContent: 'center'}
+          }}
+          >
+          
+           <TextField id="standard-basic" sx={{width: "60%"}} label="Search Articles" variant="standard" value={this.state.search} onChange={this.handleChangeBound}/>
+          
+        </AccordionSummary>
+    
+        <AccordionDetails>
+          
+          <Stack justifyContent="center" direction="row">
+            <Typography variant="body" fontFamily="Arial" sx={{mr:2}}> Filter by: </Typography>
+            <ThemeProvider theme={theme}>
+             <FormGroup row>
+               <FormControlLabel control={<Switch size="small" onChange={this.handleClickScore} color="primary"/>} label="Score" />
+               <FormControlLabel control={<Switch size="small" onChange={this.handleClickTTP} />} label="TTP" />
+               <FormControlLabel control={<Switch size="small" onChange={this.handleClickCost} />} label="Cost" />
+               <FormControlLabel control={<Switch size="small" onChange={this.handleClickReach} />} label="Reach" />
+               <FormControlLabel control={<Switch size="small" onChange={this.handleClickDifficulty} />} label="Difficulty" />
+               <FormControlLabel control={<Switch size="small" onChange={this.handleClickProfit} />} label="Profit" />
+             </FormGroup>
+            </ThemeProvider>
+          </Stack>
+          
+        </AccordionDetails>
+  </Accordion>
+    
   {window.articleModels.articleListModel().find(element => element.title.toLowerCase().includes(this.state.search.toLowerCase())) ?
   
   <div style={{ width:"100%", margin: "0 auto", alignItems:"center"}} >
@@ -253,10 +288,26 @@ render() {
                        
                         
                         <Grid xs={3} container item direction="column" sx={{maxWidth: 140}} >  
-                            {item.data.map((item, idx) => (<Grid item>
-                                <Typography sx={{ fontFamily: 'Arial'}} style={{color: "black"}} variant="body">{item.name}</Typography>
-                                <RatingBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
-                               </Grid>))}
+                            {item.data.map((item, idx) => (
+                                 
+                                <Grid item>
+                                  <Tooltip2 title={<React.Fragment>
+                                        <Typography variant="body" fontFamily="Arial" display="block" fontWeight="bold" color="inherit">{item.tooltipTitle}</Typography>
+                                        <Typography variant="body" fontFamily="Arial"> {item.tooltipStart}</Typography>
+                                        <Typography variant="body" fontFamily="Arial" color="rgba(75, 192, 192, 1)"> {item.tooltipGreen}</Typography>
+                                        <Typography variant="body" fontFamily="Arial"> {item.tooltipMiddle}</Typography>
+                                        <Typography variant="body" fontFamily="Arial" color="rgba(255, 99, 132, 0.6)"> {item.tooltipRed}</Typography>
+                                        <Typography variant="body" fontFamily="Arial"> {item.tooltipEnd}</Typography>
+                                      </React.Fragment>}>
+                                    <Typography sx={{ fontFamily: 'Arial'}} style={{color: "black"}} variant="body">{item.name}</Typography>
+                                  </Tooltip2>
+                                      
+                                      
+                                  
+                                  <RatingBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
+                                 </Grid>
+                                   
+                              ))}
                         </Grid>
                         
                     

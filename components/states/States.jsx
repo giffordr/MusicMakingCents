@@ -128,18 +128,10 @@ constructor(props){
               </Stack>
                 
               <Card sx={{minWidth: 90, maxWidth: 115, display: { xs: 'none', md: 'flex' }}} style={{border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
-                  <CardMedia
-                    component="img"
-                    image="Taylor-Sullivan-Bows-Logo-12.ico"
-                    alt="Taylor Sullivan Bows Logo"
-                  />
+                  
               </Card>
               <Card sx={{minWidth: 70, maxWidth: 100, display: { xs: 'flex', md: 'none' }}} style={{border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
-                  <CardMedia
-                    component="img"
-                    image="Taylor-Sullivan-Bows-Logo-12.ico"
-                    alt="Taylor Sullivan Bows Logo"
-                  />
+                  
               </Card>
                 
             </Stack>

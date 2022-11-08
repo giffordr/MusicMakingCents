@@ -45,10 +45,10 @@ render() {
          <div style={{ display:'flex', justifyContent:'center', alignItems:'center'}}>
              <CardContent sx={{alignItems: 'center', justifyContent:'center', mx:'15vmin', mt:'20vmin', mb:'15vmin'}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}}>   
               <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Georgia', display: { xs: 'none', md: 'flex' } }} variant="h4" align="center" alignItems="center" justifyContent="center" m='auto'> 
-                   Violin-family bow rehair and repair in the Los Angeles area
+                   We explore ways of making music a profitable full-time job
               </Typography>
                <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Georgia', display: { xs: 'flex', md: 'none' } }} variant="h5" align="center" alignItems="center" justifyContent="center" m='auto'> 
-                   Violin-family bow rehair and repair in the Los Angeles area
+                   We explore ways of making music a profitable full-time job
               </Typography>
             </CardContent>
           </div>
@@ -60,42 +60,7 @@ render() {
     
       
       <Box sx={{ flexGrow: 1 }} display="flex" alignItems="center" justifyContent="center" mx="auto">      
-        <Grid container rowSpacing={0} columnSpacing={35} display="flex" alignItems="center" justifyContent="center">
-   
-          <Grid item xs display="flex" alignItems="center" justifyContent="center" m="auto">
-            <Stack direction="column" spacing={1}>
-              <Card sx={{maxWidth: 600, minWidth: 210}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
-                <CardMedia
-                  component="img"
-                  image="Taylor-Sullivan-Bow-Repair.webp"
-                  alt="Taylor Sullivan in Bow Repair Workshop"
-                />
-              </Card>
-              <a href='#/About' ><Typography sx={{ fontFamily: 'Georgia' }} style={{color: "#444242"}} variant="h4">About Taylor<ArrowForwardIcon fontSize="medium"/></Typography></a>
-              <Divider/>
-              
-              <p></p>
-            </Stack>
-          </Grid>
-
-          <Grid item xs display="flex" alignItems="center" justifyContent="center" m="auto">
-               <Stack direction="column" spacing={1}>
-                 <p></p>
-                   <a href='#/Services' ><Typography sx={{ fontFamily: 'Georgia' }} style={{color: "#444242"}} variant="h4">Services<ArrowForwardIcon fontSize="medium"/></Typography></a>
-                 <Divider/>
-                   
-                    <Card sx={{maxWidth: 600, minWidth: 210}} style={{border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
-                      <CardMedia
-                        component="img"
-                        image="Taylor-Sullivan-Bow-Rehair-Workshop.webp"
-                        alt="Taylor Sullivan Bow Rehair in Workshop"
-                      />
-                        
-                    </Card>
-                 </Stack>
-             </Grid>
-          
-        </Grid>
+        <Typography > TODO write  summary and intro to site. </Typography>
         
       </Box>
       
@@ -140,3 +105,40 @@ export default Description;
         </Card>
       </div>
       </div>*/
+
+/*<Grid container rowSpacing={0} columnSpacing={35} display="flex" alignItems="center" justifyContent="center">
+   
+          <Grid item xs display="flex" alignItems="center" justifyContent="center" m="auto">
+            <Stack direction="column" spacing={1}>
+              <Card sx={{maxWidth: 600, minWidth: 210}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
+                <CardMedia
+                  component="img"
+                  image="Taylor-Sullivan-Bow-Repair.webp"
+                  alt="Taylor Sullivan in Bow Repair Workshop"
+                />
+              </Card>
+              <a href='#/About' ><Typography sx={{ fontFamily: 'Georgia' }} style={{color: "#444242"}} variant="h4">About Taylor<ArrowForwardIcon fontSize="medium"/></Typography></a>
+              <Divider/>
+              
+              <p></p>
+            </Stack>
+          </Grid>
+
+          <Grid item xs display="flex" alignItems="center" justifyContent="center" m="auto">
+               <Stack direction="column" spacing={1}>
+                 <p></p>
+                   <a href='#/Services' ><Typography sx={{ fontFamily: 'Georgia' }} style={{color: "#444242"}} variant="h4">Services<ArrowForwardIcon fontSize="medium"/></Typography></a>
+                 <Divider/>
+                   
+                    <Card sx={{maxWidth: 600, minWidth: 210}} style={{border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
+                      <CardMedia
+                        component="img"
+                        image="Taylor-Sullivan-Bow-Rehair-Workshop.webp"
+                        alt="Taylor Sullivan Bow Rehair in Workshop"
+                      />
+                        
+                    </Card>
+                 </Stack>
+             </Grid>
+          
+        </Grid>*/

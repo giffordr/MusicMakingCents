@@ -8,7 +8,6 @@
     "build": "webpack --devtool eval-cheap-module-source-map --output-pathinfo",
     "build:w": "webpack --devtool eval-cheap-module-source-map --output-pathinfo --watch",
     "lint": "eslint *.jsx components/*/*.jsx || exit 0"
-    
   },
   "author": "Ray Gifford <giffordr@alumni.stanford.edu> ",
   "license": "ISC",
@@ -19,6 +18,7 @@
     "@mui/icons-material": "^5.6.2",
     "@mui/lab": "^5.0.0-alpha.82",
     "@mui/material": "^5.6.4",
+    "@mui/styles": "^5.10.10",
     "chart.js": "^3.9.1",
     "chartjs-plugin-doughnut-innertext": "^3.1.0",
     "chartjs-plugin-style": "^0.5.0",

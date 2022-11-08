@@ -1,5 +1,6 @@
 "use strict";
 
+
 /* jshint node: true */
 /*
  * Model data musicmakingcents blog.
@@ -22,23 +23,8 @@
  *   location (string) - The location of the user.
  *   description (string) - A brief user description.
  *   occupation (string) - The occupation of the user.
- *
- * articleModels.photoOfUserModel - A function that returns the photos belong to
- * the specified user. Called  with an user ID (id), the function returns an object containing:
- *   _id  (string) - The ID of the photo
- *   date_time (date) - he date and time the picture was taken in ISO format.
- *   file_name (string) - The file name in the image directory of the picture.
- *   user_id (string) - The user id of the picture's owner.
- *   comments: {array of objects} - An array of comment objects containing the properties:
- *        _id  (string) - The ID of the comment.
- *        date_time (date) - The date the comment was made in ISO format.
- *        comment (string) - The text of the comment.
- *        user: {object} The user info (see userMode for format) who made the comment
- *        photo_id: (string) - The ID of the photo the comment belongs to.
- *
- * 
- * 
  */
+
 (function() {
    
 
@@ -67,11 +53,12 @@
        let score = TTP + Cost + Exposure + Difficulty + Profit;
      
        let tempData = [
-           { name: "TTP", bgcolor: "rgba(255, 99, 132, 1)", completed: TTP },
-           { name: "Cost", bgcolor: "rgba(75, 192, 192, 1)", completed: Cost },
-           { name: "Reach", bgcolor: "rgba(255, 206, 86, 1)", completed: Exposure },
-           { name: "Difficulty", bgcolor: "rgba(255, 99, 132, 1)", completed: Difficulty },
-           { name: "Profit", bgcolor: "rgba(75, 192, 192, 1)", completed: Profit },
+           { name: "TTP", bgcolor: "rgba(255, 99, 132, 1)", completed: TTP , tooltipTitle: "Time to Profitability (TTP)",
+            tooltipStart: "This metric capture the time it takes to reach a point of making a profit. ", tooltipGreen:"Green", tooltipMiddle: " may indicate something that can be used to make money instantly. Whereas", tooltipRed:" Red", tooltipEnd:" may indicate that a significant amount of time (i.e. years) might need to be invested before becoming profitable."},
+           { name: "Cost", bgcolor: "rgba(75, 192, 192, 1)", completed: Cost, tooltipTitle: "Cost", tooltipStart: "This metric captures the upfront cost needed to pursue this topic. ", tooltipGreen:"Green", tooltipMiddle: " may indicate something that anyone can afford to try it. Whereas", tooltipRed:" Red",tooltipEnd:" may indicate that small business loan might be needed for most people."},
+           { name: "Reach", bgcolor: "rgba(255, 206, 86, 1)", completed: Exposure, tooltipTitle: "Reach", tooltipStart: "This metric captures how well the topic being explored may help to gain exposure as a musician. ", tooltipGreen:"Green", tooltipMiddle: " may indicate a great way to get your music out many people. Whereas", tooltipRed:" Red",tooltipEnd:" may indicate something that doesn't have the ability to spread to many people outside of word of mouth."},
+           { name: "Difficulty", bgcolor: "rgba(255, 99, 132, 1)", completed: Difficulty, tooltipTitle: "Difficulty", tooltipStart: "This metric captures the amount, and difficulty level, of work needed to start, and mantain, the topic being explored as a revenue stream. ", tooltipGreen:"Green", tooltipMiddle: " may indicate something that anyone can do. Whereas", tooltipRed:" Red",tooltipEnd: " may indicate something that requires a developed skillset that would be a large learning curve for most people."},
+           { name: "Profit", bgcolor: "rgba(75, 192, 192, 1)", completed: Profit, tooltipTitle: "Profit", tooltipStart: "This metric captures the potential that the topic being explored has to make a net profit. ", tooltipGreen:"Green", tooltipMiddle: " may indicate something that has potential to direclty provide a livable income for the average person. Whereas", tooltipRed:" Red",tooltipEnd: " may be something that in very unlikely to directly yeild a large net profit."},
         ];
      
        let pieAmount = [0,0,0,0];
@@ -188,6 +175,7 @@ addNewArticle(16,12,8,15,4,"Streaming-Services", "Spotify", "Making Cents Team",
 addNewArticle(2,6,12,15,18, "Streaming-Services", "Apple-Music", "Making Cents Team", "(10/26/22)", "Apple Music: Is it worth the trouble?");
 addNewArticle(19,18,17,16,18, "Streaming-Services", "Apple-Music", "Making Cents Team", "(10/26/22)", "Releasing and album or and EP?");
 addNewArticle(3,3,17,10,11, "Streaming-Services", "Apple-Music", "Making Cents Team", "(10/26/22)", "Apple Music: Is it worth the trouble?");
+addNewArticle(6,3,13,10,12, "Streaming-Services", "Apple-Music", "Making Cents Team", "(10/26/22)", "Aveeshka: making art make cents?");
 
    
    var articleListModel = function() {
