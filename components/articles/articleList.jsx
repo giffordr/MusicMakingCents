@@ -39,6 +39,7 @@ import 'chartjs-plugin-style';
 import Spotify from '../articles/streamingServices/spotify/Spotify';
 
 
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const useStyles = makeStyles({

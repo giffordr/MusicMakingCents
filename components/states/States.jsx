@@ -21,6 +21,7 @@ import About from '../about/About';
 import Description from '../description/Description';
 import ElevateAppBar from '../states/ElevateAppBar';
 import ArticleList from '../articles/articleList';
+import Article from '../articles/Article';
 
 // Import all articles
 
