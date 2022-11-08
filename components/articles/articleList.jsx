@@ -232,10 +232,10 @@ const theme  = createTheme({
           
         </AccordionSummary>
     
-        <AccordionDetails>
+        <AccordionDetails >
           
-          <Stack justifyContent="center" direction="row">
-            <Typography variant="body" fontFamily="Arial" sx={{mr:2}}> Filter by: </Typography>
+          <Stack justifyContent="center" m="20" direction="row">
+            <Typography variant="body" fontFamily="Arial" sx={{mr:2}}> Filter: </Typography>
             <ThemeProvider theme={theme}>
              <FormGroup row>
                <FormControlLabel control={<Switch size="small" onChange={this.handleClickScore} color="primary"/>} label="Score" />
@@ -330,7 +330,8 @@ const theme  = createTheme({
     
     <Grid container spacing={0} direction="column" justifyContent="center" p="5px" sx={{ display: { xs: 'flex', md: 'none' } }}>
           
-        <Card sx={{ minWidth: 300, width:"100%", maxHeight: 550}} >
+        <Card sx={{ minWidth: 350, width:"100%", maxHeight: 450, "&:hover": { transform: 'scale(1.01)', transition: 'transform .4s'} }} >
+          <CardActionArea href={"#/"+item.header+"/"+item.subHeader+"/"+item.title} onClick={() => this.props.changeIndex(idx)}>
           <CardContent >
  
                    <Grid container spacing={3} style={{ display: "flex"}}>
@@ -344,20 +345,37 @@ const theme  = createTheme({
                         
                         <Grid xs={6} container item direction="column" sx={{maxWidth: 400}} >  
                             {item.data.map((item, idx) => (<Grid item>
-                                <Typography sx={{ fontFamily: 'Arial'}} style={{color: "black"}} variant="body">{item.name}</Typography>
+                                <Tooltip2 title={<React.Fragment>
+                                        <Typography variant="body" fontFamily="Arial" display="block" fontWeight="bold" color="inherit">{item.tooltipTitle}</Typography>
+                                        <Typography variant="body" fontFamily="Arial"> {item.tooltipStart}</Typography>
+                                        <Typography variant="body" fontFamily="Arial" color="rgba(75, 192, 192, 1)"> {item.tooltipGreen}</Typography>
+                                        <Typography variant="body" fontFamily="Arial"> {item.tooltipMiddle}</Typography>
+                                        <Typography variant="body" fontFamily="Arial" color="rgba(255, 99, 132, 0.6)"> {item.tooltipRed}</Typography>
+                                        <Typography variant="body" fontFamily="Arial"> {item.tooltipEnd}</Typography>
+                                      </React.Fragment>}>
+                                    <Typography sx={{ fontFamily: 'Arial'}} style={{color: "black"}} variant="body">{item.name}</Typography>
+                                  </Tooltip2>
                                 <RatingBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
                                </Grid>))}
                         </Grid>
                         
                     
-                        <Grid xs={12} item  style={{ display: "flex", alignItems: "center"}}>
-                          <Typography style={{color:"black"}} sx={{ fontFamily: 'Arial', fontWeight:'bold'}} variant="h4"> 
-                            {item.title}
-                          </Typography>
+                        <Grid xs={12} container item direction="row" justifyContent="space-between" alignItems="flex-end">
+                          <Grid xs={10} item>
+                            <Typography style={{color:"black"}} sx={{ fontFamily: 'Arial', fontWeight:'bold'}} variant="h4"> 
+                              {item.title}
+                            </Typography>
+                          </Grid>
+                          <Grid xs={2} item >
+                              <Box display="flex" justifyContent="flex-end" >
+                                  <EastIcon fontSize="large" />
+                              </Box>
+                          </Grid>
                         </Grid>
                        
                    </Grid>
-            </CardContent> 
+              </CardContent>
+            </CardActionArea> 
           </Card>
         </Grid>
     </span>
