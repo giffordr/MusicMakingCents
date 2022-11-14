@@ -17,6 +17,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuIcon from '@mui/icons-material/Menu';
 import Menu from '@mui/material/Menu';
+import Stack from '@mui/material/Stack';
 import {
   HashRouter, Route, Routes, Link, Switch,
 } from 'react-router-dom';
@@ -98,9 +99,12 @@ export default function ElevateAppBar(props) {
                 
                 <Box sx={{flexGrow: 1, justifyContent: 'center', display: { xs: 'none', md: 'flex' } }} display="flex" alignItems="left" justifyContent="center" mx = 'auto'>
                   <a href="#/" style= {{color: '#444242'}}>
-                    <Typography style={{color:"#444242"}} sx={{fontFamily: 'Arial', fontWeight: '530' }} variant="h4"> 
-                     Music Making Cents
-                    </Typography>
+                    <Stack direction="row" spacing={2}>
+                      <Typography style={{color:"#444242"}} sx={{fontFamily: 'Arial', fontWeight: '530' }} variant="h4"> 
+                       Music Making Cents
+                      </Typography>
+                        <img src="LogoBigger.webp" alt="MMC Logo" height="45" width="45"></img>
+                      </Stack>
                     </a>
                 </Box>
                 

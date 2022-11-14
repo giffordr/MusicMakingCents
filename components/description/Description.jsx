@@ -31,6 +31,8 @@ import {
 
 import CloseIcon from '@mui/icons-material/Close';
 
+import LatestArticles from '../states/LatestArticles.jsx'
+
 
 class Description extends React.Component {
 
@@ -69,6 +71,7 @@ render() {
       
       
     </Box>
+        <LatestArticles/>
       </div>
       </div>
     
