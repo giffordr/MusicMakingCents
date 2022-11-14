@@ -53,24 +53,24 @@ constructor(props){
       <Divider/>
       <p></p>
       
-      <Grid container sx={{ flexGrow: 1, maxWidth: 1150 }} spacing={2} display="flex" alignItems="center" justifyContent="center" m="auto">
+      <Grid container sx={{ flexGrow: 1, maxWidth: 1100 }} rowSpacing={1} display="flex" alignItems="center" justifyContent="center" m="auto">
         
         <Grid item display="flex" alignItems="center" justifyContent="center" m="auto">
-            <Card sx={{maxWidth:500, minWidth: 340}}>
+            <Card sx={{maxWidth:450, minWidth: 340}}>
                 <CardContent>
                 </CardContent>
             </Card>
         </Grid>
         
         <Grid item display="flex" alignItems="center" justifyContent="center" m="auto">
-          <Card sx={{maxWidth:500, minWidth: 340}}>
+          <Card sx={{maxWidth:450, minWidth: 340}}>
                 <CardContent>
                 </CardContent>
           </Card>   
         </Grid>
         
         <Grid item display="flex" alignItems="center" justifyContent="center" m="auto">
-          <Card sx={{maxWidth:500, minWidth: 340}}>
+          <Card sx={{maxWidth:450, minWidth: 340}}>
                 <CardContent>
                 </CardContent>
           </Card>
