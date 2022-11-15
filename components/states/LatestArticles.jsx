@@ -9,6 +9,7 @@ import CardContent from '@mui/material/CardContent';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
+import CardActionArea from '@mui/material/CardActionArea';
 
 import {
   HashRouter, BrowserRouter, Route, Routes, Link, Switch,
@@ -27,9 +28,11 @@ class LatestArticles extends React.Component {
 constructor(props){
   super(props);
   this.state={
-    articleIndex: 1
+    articleIndex: 1,
+    sortedModel: window.articleModels.articleListModel(),
   }
   this.changeIndex = this.changeIndex.bind(this);
+   this.sortByDate = this.sortByDate.bind(this);
 }
   
   changeIndex = (newIndex) =>{
@@ -43,6 +46,15 @@ constructor(props){
     buttonWasClicked: '',
   };
 
+componentDidMount(){
+    this.sortByDate(window.articleModels.articleListModel())
+  }
+
+sortByDate(array){
+  let sortedAr = array.sort((a,b) => new Date(b.dateCreated) - new Date(a.dateCreated));
+  this.setState({sortedModel: sortedAr})
+
+}
 
   render() {
   
@@ -56,23 +68,53 @@ constructor(props){
       <Grid container sx={{ flexGrow: 1, maxWidth: 1100 }} rowSpacing={1} display="flex" alignItems="center" justifyContent="center" m="auto">
         
         <Grid item display="flex" alignItems="center" justifyContent="center" m="auto">
-            <Card sx={{maxWidth:450, minWidth: 340}}>
+            <Card sx={{maxWidth:350, minWidth: 340}}>
+              <CardActionArea href={"#/"+this.state.sortedModel[0].header+"/"+this.state.sortedModel[0].subHeader+"/"+this.state.sortedModel[0].title}>
                 <CardContent>
+                  <Grid container spacing={1} style={{ display: "flex"}}>
+                    <Grid xs={12} item>
+                      <Doughnut data = {this.state.sortedModel[0].datastuff} options= {this.state.sortedModel[0].options}/>
+                    </Grid>
+                    <Grid xs={12} item>
+                      <Typography variant="h5" fontFamily="Arial">{this.state.sortedModel[0].title}</Typography>
+                    </Grid>
+                  </Grid>
                 </CardContent>
+              </CardActionArea>
             </Card>
         </Grid>
         
         <Grid item display="flex" alignItems="center" justifyContent="center" m="auto">
-          <Card sx={{maxWidth:450, minWidth: 340}}>
+          <Card sx={{maxWidth:350, minWidth: 340}}>
+            <CardActionArea href={"#/"+this.state.sortedModel[1].header+"/"+this.state.sortedModel[1].subHeader+"/"+this.state.sortedModel[1].title}>
                 <CardContent>
+                  <Grid container spacing={1} style={{ display: "flex"}}>
+                    <Grid xs={12} item>
+                      <Doughnut data = {this.state.sortedModel[1].datastuff} options= {this.state.sortedModel[1].options}/>
+                    </Grid>
+                    <Grid xs={12} item>
+                      <Typography variant="h5" fontFamily="Arial">{this.state.sortedModel[1].title}</Typography>
+                    </Grid>
+                  </Grid>
                 </CardContent>
+              </CardActionArea>
           </Card>   
         </Grid>
         
         <Grid item display="flex" alignItems="center" justifyContent="center" m="auto">
-          <Card sx={{maxWidth:450, minWidth: 340}}>
+          <Card sx={{maxWidth:350, minWidth: 340}}>
+            <CardActionArea href={"#/"+this.state.sortedModel[1].header+"/"+this.state.sortedModel[1].subHeader+"/"+this.state.sortedModel[1].title}>
                 <CardContent>
+                  <Grid container spacing={1} style={{ display: "flex"}}>
+                    <Grid xs={12} item>
+                      <Doughnut data = {this.state.sortedModel[2].datastuff} options= {this.state.sortedModel[2].options}/>
+                    </Grid>
+                    <Grid xs={12} item>
+                      <Typography variant="h5" fontFamily="Arial">{this.state.sortedModel[2].title}</Typography>
+                    </Grid>
+                  </Grid>
                 </CardContent>
+              </CardActionArea>
           </Card>
         </Grid>
         
