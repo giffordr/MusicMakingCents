@@ -25,6 +25,7 @@ import 'chartjs-plugin-style';
 import Spotify from '../articles/streamingServices/spotify/Spotify';
 import AppleMusic from '../articles/streamingServices/appleMusic/AppleMusic';
 import ArticleList from '../articles/articleList';
+import SimilarArticles from '../states/SimilarArticles'
 
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -35,11 +36,23 @@ class Article extends React.Component {
     super(props);
 
     this.state={
+        index: 1,
         model: window.articleModels.specificArticleModel(this.props.match.params.title)[0],
         name: this.props.match.params.subheader,
         fragment: <Spotify/>,
 }
+     this.changeIndex = this.changeIndex.bind(this);
+     this.rerenderParentCallback = this.rerenderParentCallback.bind(this);
 }
+
+rerenderParentCallback(model) {
+   this.setState({model: model}),
+   window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
+changeIndex (newIndex){
+  this.setState({index: newIndex})
+ }
 
 componentDidMount(){
           window.scrollTo({ top: 0, behavior: "smooth" })
@@ -58,7 +71,7 @@ render() {
   
     return (
     
-    
+    <Box>
     <Card id = 'Header' sx={{maxWidth: '100%', height: '20%', minHeight: 200, maxHeight: 700}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
          <div style={{ display:'flex', justifyContent:'center', alignItems:'center'}}>
              <CardContent sx={{alignItems: 'center', justifyContent:'center', mx:'15vmin', mt:'10vmin', mb:'15vmin'}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}}>   
@@ -80,6 +93,8 @@ render() {
             </CardContent>
           </div>
       </Card>
+      <SimilarArticles subHeader={this.state.model.subHeader} mainHeader={this.state.model.header} callback={this.rerenderParentCallback}/>
+     </Box>
     
     );
   }

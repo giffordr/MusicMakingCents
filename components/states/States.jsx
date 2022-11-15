@@ -71,7 +71,7 @@ constructor(props){
     <Contact {...props} title="Contact" />
   )}/> 
           <Route path="/articles" render={props => <ArticleList changeIndex={this.changeIndex} {...props} title="Articles"/> } />
-          <Route path="/:header/:subheader/:title" render={props => <Article articleIndex={this.state.articleIndex} {...props} /> } /> 
+          <Route path="/:header/:subheader/:title" render={props => <Article articleIndex={this.state.articleIndex} changeIndex={this.changeIndex} {...props} /> } /> 
           
           <Route path="/" render={props => (
     <Description {...props} title="Home" />
