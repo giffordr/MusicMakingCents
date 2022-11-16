@@ -51,9 +51,9 @@ componentDidMount(){
 
 sortByTopic(array){
   let sortedAr = array.filter( el => el.subHeader === this.state.subTopic);
-  if (sortedAr.length < 3 ){
+  if (sortedAr.length < 2 || sortedAr == 'undefined'){
     
-      sortedAr.push(window.articleModels.articleListModel());
+      sortedAr = window.articleModels.articleListModel();
         
     
   }
@@ -65,7 +65,6 @@ sortByTopic(array){
   return (
     <Box sx={{maxWidth:1200}} alignItems="center" justifyContent="center" m="auto" pt="75px">
       
-      {this.props.subHeader}
       <Typography style={{color:"#444242"}} variant='h5' fontFamily="Arial" fontWeight="bold"> Similar Posts</Typography>
       <Divider/>
       <p></p>
