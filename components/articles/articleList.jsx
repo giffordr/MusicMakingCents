@@ -25,8 +25,9 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import EastIcon from '@mui/icons-material/East';
 import {
-  HashRouter, Route, Routes, Link,
+  HashRouter, Route, Routes, Link, NavLink,
 } from 'react-router-dom';
+
 
 import CloseIcon from '@mui/icons-material/Close';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
@@ -264,7 +265,7 @@ const theme  = createTheme({
       <Grid container spacing={0} direction="column" justifyContent="center" p="5px" sx={{ display: { xs: 'none', md: 'flex' } }}>
           
         <Card sx={{ minWidth: 350, width:"100%", maxHeight: 400, "&:hover": { transform: 'scale(1.01)', transition: 'transform .4s'} }} >
-          <CardActionArea href={"/"+item.header+"/"+item.subHeader+"/"+item.title} onClick={() => this.props.changeIndex(idx)}>
+          <CardActionArea component={NavLink} to={"/"+item.header+"/"+item.subHeader+"/"+item.title} onClick={() => this.props.changeIndex(idx)}>
             <CardContent >
 
                    <Grid container spacing={3} style={{ display: "flex"}}>
@@ -332,7 +333,7 @@ const theme  = createTheme({
     <Grid container spacing={0} direction="column" justifyContent="center" p="5px" sx={{ display: { xs: 'flex', md: 'none' } }}>
           
         <Card sx={{ minWidth: 350, width:"100%", maxHeight: 450, "&:hover": { transform: 'scale(1.01)', transition: 'transform .4s'} }} >
-          <CardActionArea href={"/"+item.header+"/"+item.subHeader+"/"+item.title} onClick={() => this.props.changeIndex(idx)}>
+          <CardActionArea component={NavLink} to={"/"+item.header+"/"+item.subHeader+"/"+item.title} onClick={() => this.props.changeIndex(idx)}>
           <CardContent >
  
                    <Grid container spacing={3} style={{ display: "flex"}}>

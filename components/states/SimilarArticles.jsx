@@ -12,7 +12,7 @@ import Grid from '@mui/material/Grid';
 import CardActionArea from '@mui/material/CardActionArea';
 
 import {
-  HashRouter, BrowserRouter, Route, Routes, Link, Switch,
+  HashRouter, BrowserRouter, Route, Routes, Link, Switch, NavLink,
 } from 'react-router-dom';
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
@@ -73,7 +73,8 @@ sortByTopic(array){
         
         <Grid item display="flex" alignItems="center" justifyContent="center" m="auto">
             <Card sx={{maxWidth:350, minWidth: 340}}>
-              <CardActionArea href={"/"+this.state.sortedModel[0].header+"/"+this.state.sortedModel[0].subHeader+"/"+this.state.sortedModel[0].title} onClick={() => this.props.callback(this.state.sortedModel[0])}>
+              <CardActionArea component={NavLink} to={"/"+this.state.sortedModel[0].header+"/"+this.state.sortedModel[0].subHeader+"/"+this.state.sortedModel[0].title} onClick={() => this.props.callback(this.state.sortedModel[0])}>
+                
                 <CardContent>
                   <Grid container spacing={1} style={{ display: "flex"}}>
                     <Grid xs={12} item>
@@ -84,13 +85,15 @@ sortByTopic(array){
                     </Grid>
                   </Grid>
                 </CardContent>
+                  
               </CardActionArea>
             </Card>
         </Grid>
         
         <Grid item display="flex" alignItems="center" justifyContent="center" m="auto">
           <Card sx={{maxWidth:350, minWidth: 340}}>
-            <CardActionArea href={"/"+this.state.sortedModel[1].header+"/"+this.state.sortedModel[1].subHeader+"/"+this.state.sortedModel[1].title} onClick={() => this.props.callback(this.state.sortedModel[1])}>
+            <CardActionArea component={NavLink} to={"/"+this.state.sortedModel[1].header+"/"+this.state.sortedModel[1].subHeader+"/"+this.state.sortedModel[1].title} onClick={() => this.props.callback(this.state.sortedModel[1])}>
+              
                 <CardContent>
                   <Grid container spacing={1} style={{ display: "flex"}}>
                     <Grid xs={12} item>
@@ -101,13 +104,15 @@ sortByTopic(array){
                     </Grid>
                   </Grid>
                 </CardContent>
+                
               </CardActionArea>
           </Card>   
         </Grid>
         
         <Grid item display="flex" alignItems="center" justifyContent="center" m="auto">
           <Card sx={{maxWidth:350, minWidth: 340}}>
-            <CardActionArea href={"/"+this.state.sortedModel[2].header+"/"+this.state.sortedModel[2].subHeader+"/"+this.state.sortedModel[2].title} onClick={() => this.props.callback(this.state.sortedModel[2])}>
+            <CardActionArea component={NavLink} to={"/"+this.state.sortedModel[2].header+"/"+this.state.sortedModel[2].subHeader+"/"+this.state.sortedModel[2].title} onClick={() => this.props.callback(this.state.sortedModel[2])}>
+              
                 <CardContent>
                   <Grid container spacing={1} style={{ display: "flex"}}>
                     <Grid xs={12} item>
@@ -118,6 +123,7 @@ sortByTopic(array){
                     </Grid>
                   </Grid>
                 </CardContent>
+                
               </CardActionArea>
           </Card>
         </Grid>
