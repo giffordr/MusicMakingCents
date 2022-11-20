@@ -8,10 +8,16 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
+//import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import { createBrowserHistory, history } from 'history'
+
 
 import {
-  HashRouter, BrowserRouter, Route, Routes, Link, Switch,
+  HashRouter, BrowserRouter as Router, Route, Routes, Link, Switch, Redirect, 
 } from 'react-router-dom';
+//import {
+//  Switch
+//} from 'react-router-dom';
 
 // Import all components
 
@@ -54,30 +60,30 @@ constructor(props){
   return (
     <div className="App"> 
       
-      
-      <ElevateAppBar/>
-      
-
-      <HashRouter >
-          <Switch>
-          <Route path="/home" render={props => (
-    <Description {...props} title="Home" />
-  )}/> 
-          <Route path="/about" render={props => (
-    <About {...props} title="About" />
-  )}/> 
-         
-          <Route path="/contact" render={props => (
-    <Contact {...props} title="Contact" />
-  )}/> 
-          <Route path="/articles" render={props => <ArticleList changeIndex={this.changeIndex} {...props} title="Articles"/> } />
-          <Route path="/:header/:subheader/:title" render={props => <Article articleIndex={this.state.articleIndex} changeIndex={this.changeIndex} {...props} /> } /> 
+      <Router >
+        
+          <ElevateAppBar/>
           
-          <Route path="/" render={props => (
-    <Description {...props} title="Home" />
-  )}/> 
-          </Switch>
-      </HashRouter>
+            <Switch>
+              <Route exact path="/home" render={props => (
+                <Description {...props} title="Home" />
+                )}/> 
+              <Route exact path="/About" render={props => (
+                  <About {...props} title="About" />
+                  )} component={About}/> 
+             
+              <Route exact path="/Contact" render={props => (
+                <Contact {...props} title="Contact" />
+                )}/> 
+              <Route exact path="/Articles" render={props => <ArticleList changeIndex={this.changeIndex} {...props} title="Articles"/> } />
+              <Route exact path="/:header/:subheader/:title" render={props => <Article articleIndex={this.state.articleIndex} changeIndex={this.changeIndex} {...props} /> } /> 
+              
+              <Route exact path="/" render={props => (
+                <Description {...props} title="Home" />
+                  )}/> 
+              <Redirect to="/" />
+            </Switch>
+         </Router>
       
       <footer className="App-footer">
         

@@ -1,6 +1,13 @@
 module.exports = {
   entry: {
     MusicMakingCents: './MMC.jsx',
+    modelData:"./modelData/articles.js",
+    
+  },
+  output: {
+    path: `${__dirname}/compiled`,
+    publicPath: '/',
+    filename: '[name].bundle.js',
   },
   module: {
     rules: [
@@ -30,10 +37,10 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx'],
   },
-  output: {
-    path: `${__dirname}/compiled`,
-    publicPath: '/',
-    filename: '[name].bundle.js',
+  
+  devServer: {
+    historyApiFallback: true,
+    index: "/"
   },
   mode: 'production',
   

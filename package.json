@@ -5,7 +5,7 @@
   "description": "Blog exploring how to make money as a musician",
   "main": "webServer.js",
   "scripts": {
-    "build": "webpack --devtool eval-cheap-module-source-map --output-pathinfo",
+    "build": "webpack --devtool eval-cheap-module-source-map --output-pathinfo --history-api-fallback",
     "build:w": "webpack --devtool eval-cheap-module-source-map --output-pathinfo --watch",
     "lint": "eslint *.jsx components/*/*.jsx || exit 0"
   },

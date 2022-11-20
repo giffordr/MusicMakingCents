@@ -22,10 +22,20 @@ var app = express();
 
 // We have the express static module (http://expressjs.com/en/starter/static-files.html) do all
 // the work for us.
+//app.use(require('prerender-node'));
 app.use(express.static(__dirname));
-app.use(require('prerender-node'));
+
+
+app.get('*', function (request, response) {
+  response.sendFile(path.resolve(__dirname, '/index.html'));
+});
+
+
+
+
 
 var server2 = app.listen(portno, function () {
   var port = server2.address().port;
   console.log('Listening at http://localhost:' + port + ' exporting the directory ' + __dirname);
 });
+

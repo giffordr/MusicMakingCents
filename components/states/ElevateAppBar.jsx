@@ -85,7 +85,7 @@ export default function ElevateAppBar(props) {
                 <Box sx={{ flexGrow: 0.73, display: { xs: 'none', md: 'flex' } }} display="flex" alignItems="left" justifyContent="left" >
                   {pages.map((page) => (
 
-                  <a href={"#/"+page} style= {{color: '#444242', fontFamily:'Arial'}}>
+                  <Link to={"/"+page} sx= {{color: '#444242', fontFamily:'Arial'}}>
                     <Button
                       key={page}
                       sx={{ my: 2, color: "#444242", display: 'block',fontFamily: 'Arial', textTransform: 'none' }}
@@ -93,34 +93,34 @@ export default function ElevateAppBar(props) {
                     >
                       {page}
                     </Button>
-                    </a>
+                    </Link>
                   ))}
                 </Box>
                 
                 <Box sx={{flexGrow: 1, justifyContent: 'center', display: { xs: 'none', md: 'flex' } }} display="flex" alignItems="left" justifyContent="center" mx = 'auto'>
-                  <a href="#/" style= {{color: '#444242'}}>
+                  <Link to="/" sx={{color: '#444242'}}>
                     <Stack direction="row" spacing={2}>
                       <Typography style={{color:"#444242"}} sx={{fontFamily: 'Arial', fontWeight: '530' }} variant="h4"> 
                        Music Making Cents
                       </Typography>
                         <img src="LogoBigger.webp" alt="MMC Logo" height="45" width="45"></img>
                       </Stack>
-                    </a>
+                    </Link>
                 </Box>
                 
                 <Box sx={{flexGrow: 1, justifyContent: 'right', display: { xs: 'none', md: 'flex' }}} display="flex" alignItems="right" justifyContent="right">
-                  <a href="#/Contact" style= {{color: '#444242', fontFamily:'Georgia'}}>
+                  <Link to="/Contact" sx= {{color: '#444242', fontFamily:'Georgia'}}>
                     <Button  variant="contained" sx={{fontFamily: 'Arial', textTransform: 'none' }} >
                        Contact
                     </Button>
-                  </a>
+                  </Link>
                 </Box>
                 <Box sx={{flexGrow: 1, justifyContent: 'left', display: { xs: 'flex', md: 'none' }}} display="flex" alignItems="left" justifyContent="left">
-                  <a href="#/Contact" style= {{color: '#444242', fontFamily:'Georgia'}}>
+                  <Link to="/Contact" sx= {{color: '#444242', fontFamily:'Georgia'}}>
                     <Button  variant="contained" sx={{fontFamily: 'Arial', textTransform: 'none'}} >
                        Contact
                     </Button>
-                  </a>
+                  </Link>
                 </Box>
                 
                 <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }} display="flex" alignItems="right" justifyContent="right" >
@@ -148,11 +148,11 @@ export default function ElevateAppBar(props) {
                   >
                     {pages2.map((page) => (
                     
-                    <a href={"#/"+page} style= {{color: '#444242', fontFamily:'Georgia'}}>
+                    <Link to={"/"+page} sx= {{color: '#444242', fontFamily:'Georgia'}}>
                       <MenuItem key={page} >
                         <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Georgia' }} textAlign="center">{page}</Typography>
                       </MenuItem>
-                    </a>
+                    </Link>
                     ))}
                   </Menu>
                   
