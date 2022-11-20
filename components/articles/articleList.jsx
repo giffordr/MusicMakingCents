@@ -264,7 +264,7 @@ const theme  = createTheme({
       <Grid container spacing={0} direction="column" justifyContent="center" p="5px" sx={{ display: { xs: 'none', md: 'flex' } }}>
           
         <Card sx={{ minWidth: 350, width:"100%", maxHeight: 400, "&:hover": { transform: 'scale(1.01)', transition: 'transform .4s'} }} >
-          <CardActionArea href={"#/"+item.header+"/"+item.subHeader+"/"+item.title} onClick={() => this.props.changeIndex(idx)}>
+          <CardActionArea href={"/"+item.header+"/"+item.subHeader+"/"+item.title} onClick={() => this.props.changeIndex(idx)}>
             <CardContent >
 
                    <Grid container spacing={3} style={{ display: "flex"}}>
@@ -332,7 +332,7 @@ const theme  = createTheme({
     <Grid container spacing={0} direction="column" justifyContent="center" p="5px" sx={{ display: { xs: 'flex', md: 'none' } }}>
           
         <Card sx={{ minWidth: 350, width:"100%", maxHeight: 450, "&:hover": { transform: 'scale(1.01)', transition: 'transform .4s'} }} >
-          <CardActionArea href={"#/"+item.header+"/"+item.subHeader+"/"+item.title} onClick={() => this.props.changeIndex(idx)}>
+          <CardActionArea href={"/"+item.header+"/"+item.subHeader+"/"+item.title} onClick={() => this.props.changeIndex(idx)}>
           <CardContent >
  
                    <Grid container spacing={3} style={{ display: "flex"}}>
