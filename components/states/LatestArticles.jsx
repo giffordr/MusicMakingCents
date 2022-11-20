@@ -69,7 +69,7 @@ sortByDate(array){
         
         <Grid item display="flex" alignItems="center" justifyContent="center" m="auto">
             <Card sx={{maxWidth:350, minWidth: 340}}>
-              <CardActionArea href={"#/"+this.state.sortedModel[0].header+"/"+this.state.sortedModel[0].subHeader+"/"+this.state.sortedModel[0].title}>
+              <CardActionArea href={"/"+this.state.sortedModel[0].header+"/"+this.state.sortedModel[0].subHeader+"/"+this.state.sortedModel[0].title}>
                 <CardContent>
                   <Grid container spacing={1} style={{ display: "flex"}}>
                     <Grid xs={12} item>
@@ -86,7 +86,7 @@ sortByDate(array){
         
         <Grid item display="flex" alignItems="center" justifyContent="center" m="auto">
           <Card sx={{maxWidth:350, minWidth: 340}}>
-            <CardActionArea href={"#/"+this.state.sortedModel[1].header+"/"+this.state.sortedModel[1].subHeader+"/"+this.state.sortedModel[1].title}>
+            <CardActionArea href={"/"+this.state.sortedModel[1].header+"/"+this.state.sortedModel[1].subHeader+"/"+this.state.sortedModel[1].title}>
                 <CardContent>
                   <Grid container spacing={1} style={{ display: "flex"}}>
                     <Grid xs={12} item>
@@ -103,7 +103,7 @@ sortByDate(array){
         
         <Grid item display="flex" alignItems="center" justifyContent="center" m="auto">
           <Card sx={{maxWidth:350, minWidth: 340}}>
-            <CardActionArea href={"#/"+this.state.sortedModel[1].header+"/"+this.state.sortedModel[1].subHeader+"/"+this.state.sortedModel[1].title}>
+            <CardActionArea href={"/"+this.state.sortedModel[1].header+"/"+this.state.sortedModel[1].subHeader+"/"+this.state.sortedModel[1].title}>
                 <CardContent>
                   <Grid container spacing={1} style={{ display: "flex"}}>
                     <Grid xs={12} item>
