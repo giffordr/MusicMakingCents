@@ -81,7 +81,7 @@ constructor(props){
               <Route exact path="/" render={props => (
                 <Description {...props} title="Home" />
                   )}/> 
-              <Redirect to="/" />
+              
             </Switch>
          </Router>
       
