@@ -25,11 +25,14 @@ var app = express();
 app.use(require('prerender-node'));
 app.use(express.static(__dirname));
 
-
-app.get('*', function (request, response) {
-  response.sendFile(path.resolve(__dirname, '/index.html'));
+// if something redirects here, give it a 404 status and "Not found" message!
+app.get('/not-found', (req, res) => {
+  res.sendStatus(404);
 });
 
+app.get('*', (req, res) => {
+  res.sendFile(ROOT_FOLDER + '/index.html');
+});
 
 
 
