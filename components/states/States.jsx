@@ -70,7 +70,7 @@ constructor(props){
                 )}/> 
               <Route exact path="/About" render={props => (
                   <About {...props} title="About" />
-                  )} component={About}/> 
+                  )}/> 
              
               <Route exact path="/Contact" render={props => (
                 <Contact {...props} title="Contact" />
