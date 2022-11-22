@@ -1,1 +1,2 @@
-Sitemap: https://musicmakingcents.com/sitemap.txt
+Sitemap: https://musicmakingcents.com/sitemap.xml
+
