@@ -1,91 +1,47 @@
 <!doctype html>
 <html>
   <head>
-        <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P89JPSX');</script>
-<!-- End Google Tag Manager -->
+     <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      // This script takes the current url and converts the path and query
+      // string into just a query string, and then redirects the browser
+      // to the new url with only a query string and hash fragment,
+      // e.g. https://www.foo.tld/one/two?a=b&c=d#qwe, becomes
+      // https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
+      // Note: this 404.html file must be at least 512 bytes for it to work
+      // with Internet Explorer (it is currently > 512 bytes)
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4178335146859186"
-     crossorigin="anonymous"></script>
-    
-    <link rel="icon" href="LogoBigger.ico" />
-    <meta name="theme-color" content="#000000" />
-    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
-    <meta
-      name="Music Making Cents"
-      content="A blog exploring how to make money as a musician"
-    />
-    <meta
-      name="description"
-      content="A blog of someone exploring how to make money as a musician."
-    />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="Taylor-Sullivan-Bows-Logo-12.ico">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    
-    <link
-      rel="apple-touch-startup-image"
-      media="screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-      href="Splash_Screen3.png"
-    />
-    <link
-      rel="apple-touch-startup-image"
-      media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-      href="Iphone7_SS.PNG"
-    />
-    <link
-      rel="apple-touch-startup-image"
-      media="screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-      href="12_13_Pro_Max.png"
-    />
-    <link
-      rel="apple-touch-startup-image"
-      media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-      href="11_Pro_Max.png"
-    />
-    <link
-      rel="apple-touch-startup-image"
-      media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-      href="11_Pro.png"
-    />
-    
-    <link rel="stylesheet" href="styles/index.css">
-    <title>Music Making Cents</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    
+      // If you're creating a Project Pages site and NOT using a custom domain,
+      // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
+      // This way the code will only replace the route part of the path, and not
+      // the real directory in which the app resides, for example:
+      // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
+      // https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
+      // Otherwise, leave pathSegmentsToKeep as 0.
+      var pathSegmentsToKeep = 0;
 
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+
+    </script>
     
   </head>
   
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S81K58HMX1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-S81K58HMX1');
-</script>
+  
 
   
   
   <body style="margin:0; -webkit-font-smoothing: antialiased;">
     
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P89JPSX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    
-      <div id="reactapp">
-        <script src="modelData/articles.js"></script>
-        
-        <script src="compiled/MusicMakingCents.bundle.js"></script>
-        
-      </div>
+
   </body>
 </html>
 
