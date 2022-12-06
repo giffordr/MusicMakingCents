@@ -56,34 +56,39 @@ constructor(props){
 
 
   render() {
+    window.prerender = (path) => new Promise(resolve => {
+        history.push(path);
+        /* make sure that the client-side rendering is complete, then */
+        resolve(document.documentElement.outerHTML);
+      });
   
   return (
     <div className="App"> 
       
-      <Router >
+      <HashRouter >
         
           <ElevateAppBar/>
           
             <Switch>
-              <Route exact path="/home" render={props => (
+              <Route path="/home" render={props => (
                 <Description {...props} title="Home" />
                 )}/> 
               <Route exact path="/About" render={props => (
                   <About {...props} title="About" />
                   )}/> 
              
-              <Route exact path="/Contact" render={props => (
+              <Route path="/Contact" render={props => (
                 <Contact {...props} title="Contact" />
                 )}/> 
               <Route exact path="/Articles" render={props => <ArticleList changeIndex={this.changeIndex} {...props} title="Articles"/> } />
-              <Route exact path="/:header/:subheader/:title" render={props => <Article articleIndex={this.state.articleIndex} changeIndex={this.changeIndex} {...props} /> } /> 
+              <Route path="/Articles/:header/:subheader/:title" render={props => <Article articleIndex={this.state.articleIndex} changeIndex={this.changeIndex} {...props} /> } /> 
               
               <Route exact path="/" render={props => (
                 <Description {...props} title="Home" />
                   )}/> 
               
             </Switch>
-         </Router>
+         </HashRouter>
       
       <footer className="App-footer">
         
@@ -148,6 +153,7 @@ constructor(props){
   );
   
 }
+
 }
 export default States;
  //onClick={e => this.handleButtonClick(e.first_name + " " + e.last_name, e)}>{e.first_name + " " + e.last_name}

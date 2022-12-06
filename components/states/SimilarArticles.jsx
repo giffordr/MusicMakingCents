@@ -73,7 +73,7 @@ sortByTopic(array){
         
         <Grid item display="flex" alignItems="center" justifyContent="center" m="auto">
             <Card sx={{maxWidth:350, minWidth: 340}}>
-              <CardActionArea component={NavLink} to={"/"+this.state.sortedModel[0].header+"/"+this.state.sortedModel[0].subHeader+"/"+this.state.sortedModel[0].title} onClick={() => this.props.callback(this.state.sortedModel[0])}>
+              <CardActionArea component={NavLink} to={"/Articles/"+this.state.sortedModel[0].header+"/"+this.state.sortedModel[0].subHeader+"/"+this.state.sortedModel[0].title} onClick={() => this.props.callback(this.state.sortedModel[0])}>
                 
                 <CardContent>
                   <Grid container spacing={1} style={{ display: "flex"}}>
@@ -92,7 +92,7 @@ sortByTopic(array){
         
         <Grid item display="flex" alignItems="center" justifyContent="center" m="auto">
           <Card sx={{maxWidth:350, minWidth: 340}}>
-            <CardActionArea component={NavLink} to={"/"+this.state.sortedModel[1].header+"/"+this.state.sortedModel[1].subHeader+"/"+this.state.sortedModel[1].title} onClick={() => this.props.callback(this.state.sortedModel[1])}>
+            <CardActionArea component={NavLink} to={"/Articles/"+this.state.sortedModel[1].header+"/"+this.state.sortedModel[1].subHeader+"/"+this.state.sortedModel[1].title} onClick={() => this.props.callback(this.state.sortedModel[1])}>
               
                 <CardContent>
                   <Grid container spacing={1} style={{ display: "flex"}}>
@@ -111,7 +111,7 @@ sortByTopic(array){
         
         <Grid item display="flex" alignItems="center" justifyContent="center" m="auto">
           <Card sx={{maxWidth:350, minWidth: 340}}>
-            <CardActionArea component={NavLink} to={"/"+this.state.sortedModel[2].header+"/"+this.state.sortedModel[2].subHeader+"/"+this.state.sortedModel[2].title} onClick={() => this.props.callback(this.state.sortedModel[2])}>
+            <CardActionArea component={NavLink} to={"/Articles/"+this.state.sortedModel[2].header+"/"+this.state.sortedModel[2].subHeader+"/"+this.state.sortedModel[2].title} onClick={() => this.props.callback(this.state.sortedModel[2])}>
               
                 <CardContent>
                   <Grid container spacing={1} style={{ display: "flex"}}>
