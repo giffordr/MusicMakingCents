@@ -48,7 +48,7 @@
    
    // Create function to add new article to 'articles' list
    
-   var addNewArticle = (TTP, Cost, Exposure, Difficulty, Profit, Header, SubHeader, Author, DateCreated, ArticleTitle) => {
+   var addNewArticle = (TTP, Cost, Exposure, Difficulty, Profit, Header, SubHeader, Author, DateCreated, ArticleTitle, Category, TypeOf) => {
   
        let score = TTP + Cost + Exposure + Difficulty + Profit;
      
@@ -118,7 +118,7 @@
        });
        
        articles.push({title: ArticleTitle, header: Header, subHeader: SubHeader, 
-                      author: Author, dateCreated: DateCreated,
+                      author: Author, dateCreated: DateCreated, category: Category, typeOf: TypeOf,
                       score: score, TTP: TTP, difficulty: Difficulty,
                       reach: Exposure, cost: Cost, profit: Profit,
                       data: tempData, datastuff: {
@@ -171,12 +171,12 @@
 
 // Add all articles here   
    
-addNewArticle(16,12,8,15,4,"Streaming-Services", "Spotify", "Making Cents Team", "10/25/19", "Spotify: Which streaming service is best?");
-addNewArticle(2,6,12,15,18, "Streaming-Services", "Apple-Music", "Making Cents Team", "10/26/22", "Apple Music: Is it worth the trouble?");
-addNewArticle(19,18,17,16,18, "Streaming-Services", "Apple-Music", "Making Cents Team", "10/23/22", "Releasing and album or and EP?");
-addNewArticle(3,3,17,10,11, "Streaming-Services", "Apple-Music", "Making Cents Team", "10/25/22", "Apple Music: Is it worth the trouble?");
-addNewArticle(6,3,13,10,12, "Streaming-Services", "Apple-Music", "Making Cents Team", "10/26/22", "Aveeshka: making art make cents?");
-addNewArticle(6,3,13,10,12, "Streaming-Services", "Apple-Music", "Making Cents Team", "10/26/21", "Nancy: Here in SB yayyyyy!");
+addNewArticle(16,12,8,15,4,"Streaming-Services", "Spotify", "Making Cents Team", "10/25/19", "Spotify: Which streaming service is best?", "Music", "Article");
+addNewArticle(2,6,12,15,18, "Streaming-Services", "Apple-Music", "Making Cents Team", "10/26/22", "Apple Music: Is it worth the trouble?", "Music", "Article");
+addNewArticle(19,18,17,16,18, "Streaming-Services", "Apple-Music", "Making Cents Team", "10/23/22", "Releasing and album or and EP?", "Music", "Article");
+addNewArticle(3,3,17,10,11, "Streaming-Services", "Apple-Music", "Making Cents Team", "10/25/22", "Apple Music: Is it worth the trouble?", "Music", "Article");
+addNewArticle(6,3,13,10,12, "Streaming-Services", "Apple-Music", "Making Cents Team", "10/26/22", "Aveeshka: making art make cents?", "Music", "Article");
+addNewArticle(6,3,13,10,12, "Streaming-Services", "Apple-Music", "Making Cents Team", "10/26/21", "Nancy: Here in SB yayyyyy!", "Music", "Article");
 
    
    var articleListModel = function() {
