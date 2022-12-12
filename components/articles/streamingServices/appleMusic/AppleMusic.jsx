@@ -44,6 +44,7 @@ constructor(props){
 
 componentDidMount(){
           window.scrollTo({ top: 0, behavior: "smooth" })
+          document.getElementsByTagName('meta')["description"].content = "Is Apple Music profitable? We walk you through the numbers, and breakdown how to make money with music.";
 }
 render() {
   

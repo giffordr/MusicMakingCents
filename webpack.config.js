@@ -1,4 +1,5 @@
 module.exports = {
+  
   entry: {
     MusicMakingCents: './MMC.jsx',
     modelData:"./modelData/articles.js",

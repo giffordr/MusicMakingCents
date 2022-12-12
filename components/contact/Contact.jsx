@@ -46,6 +46,7 @@ class Contact extends React.Component {
 componentDidMount(){
           window.scrollTo({ top: 0, behavior: "smooth" });
           document.title = ("Music Making Cents- " + this.props.title);
+          document.getElementsByTagName('meta')["description"].content = "Get in touch with us! We'd love to cover all money making opportunities with music. Let us know what you would like to see us cover next!";
 
           
 };

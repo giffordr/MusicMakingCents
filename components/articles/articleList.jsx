@@ -168,6 +168,7 @@ handleClickReach =(event) => {
 componentDidMount(){
           window.scrollTo({ top: 0, behavior: "smooth" });
           document.title = ("Music Making Cents- " + this.props.title);
+          document.getElementsByTagName('meta')["description"].content = "How to make money with music: A comprehensive list of all of our articles and blog posts.";
 
           
 };
