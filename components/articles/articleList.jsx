@@ -24,6 +24,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import EastIcon from '@mui/icons-material/East';
+import Fade from '@mui/material/Fade';
 import {
   HashRouter, Route, Routes, Link, NavLink,
 } from 'react-router-dom';
@@ -67,7 +68,8 @@ constructor(props){
         sortCost: false,
         sortReach: false,
         sortDifficulty: false,
-        sortProfit: false,        
+        sortProfit: false,
+        transition: false,
     };
   this.listUnsorted = window.articleModels.articleListModel();
   
@@ -80,6 +82,7 @@ constructor(props){
   this.handleClickProfit = this.handleClickProfit.bind(this);
   this.handleClickReach = this.handleClickReach.bind(this);
   this.handleClickDifficulty = this.handleClickDifficulty.bind(this);
+  this.checkInView = this.checkInView.bind(this);
 }
   
 handleClose = (event, reason) => {
@@ -169,9 +172,23 @@ componentDidMount(){
           window.scrollTo({ top: 0, behavior: "smooth" });
           document.title = ("Music Making Cents- " + this.props.title);
           document.getElementsByTagName('meta')["description"].content = "How to make money with music: A comprehensive list of all of our articles and blog posts.";
-
-          
+         
 };
+
+checkInView(id){
+  var myElement = document.getElementById(id);
+  var bounding = myElement.getBoundingClientRect();
+      
+  if (bounding.top >= 0 && bounding.left >= 0 && bounding.right <= window.innerWidth && bounding.bottom <= window.innerHeight) {
+      console.log('Element is in the viewport!');
+      return true
+  } 
+      
+  else {
+    console.log('Element is NOT in the viewport!');
+      
+  }
+}
 
 sortByScore(array){
   let sortedAr = array.sort((a,b) => b.score.toString().localeCompare(a.score, 'en', {numeric: true}));
@@ -220,8 +237,8 @@ const theme  = createTheme({
   return (
       
     
-<Box sx={{maxWidth:1100}} alignItems="center" justifyContent="center" m="auto" pt="75px">
-  <Accordion>
+<Box sx={{maxWidth:1100}} alignItems="center" justifyContent="center" m="auto" pt="75px" >
+  <Accordion style={{ background: 'transparent'}} elevation={0}>
     
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -264,8 +281,8 @@ const theme  = createTheme({
       
     <span>
       <Grid container spacing={0} direction="column" justifyContent="center" p="5px" sx={{ display: { xs: 'none', md: 'flex' } }}>
-          
-        <Card sx={{ minWidth: 350, width:"100%", maxHeight: 400, "&:hover": { transform: 'scale(1.01)', transition: 'transform .4s'} }} >
+        <Fade in={this.checkInView}>     
+        <Card sx={{ minWidth: 350, width:"100%", maxHeight: 400, "&:hover": { transform: 'scale(1.01)', transition: 'transform .4s'} }} id={item.id}>
           <CardActionArea component={NavLink} to={"/Articles/"+item.header+"/"+item.subHeader+"/"+item.title} onClick={() => this.props.changeIndex(idx)}>
             <CardContent >
 
@@ -274,6 +291,7 @@ const theme  = createTheme({
                        <Grid xs={4} item style={{  alignItems: "center" }}>
                             
                               <Doughnut data = {item.datastuff} options= {item.options}/>
+                         
                              
                         </Grid>
                        
@@ -325,6 +343,7 @@ const theme  = createTheme({
               
            </CardActionArea>
           </Card>
+        </Fade>
 
      </Grid>
    

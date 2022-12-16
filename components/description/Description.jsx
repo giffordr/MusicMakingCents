@@ -25,6 +25,8 @@ import HeadphonesIcon from '@mui/icons-material/Headphones';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import EastIcon from '@mui/icons-material/East';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import Fab from '@mui/material/Fab';
+import Zoom from '@mui/material/Zoom';
 import {
   HashRouter, Route, Routes, Link, Switch,
 } from 'react-router-dom';
@@ -35,15 +37,31 @@ import LatestArticles from '../states/LatestArticles.jsx'
 
 
 class Description extends React.Component {
+constructor(props){
+  super(props);
+  this.state={
+    unique: [...new Set(window.articleModels.articleListModel().map(el => (el.category)))],
+    transition: false,
+  }
+}
+  
 
 componentDidMount(){
           window.scrollTo({ top: 0, behavior: "smooth" })
           document.title = ("Music Making Cents- " + this.props.title);
+          this.setState({transition: true});
 }
 render() {
   
   return (
     <div className="Body">
+     <Stack direction="row" spacing={{sm: 2}} sx={{alignItems: 'center', justifyContent:'center', mt:'5vmin'}}>
+          {this.state.unique.map(el => <Zoom in={this.state.transition}><Fab variant="extended"  style={{width:'100px', maxHeight:'30px', minHeight:'30px'}} color="grey" aria-label="add"> <Typography sx={{fontSize: 12}}> {el} </Typography> </Fab></Zoom>
+                                
+                                )}
+          
+          
+     </Stack>
     <Card id = 'Header' sx={{maxWidth: '100%', height: '20%', minHeight: 200, maxHeight: 700}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}} square={true}>
          <div style={{ display:'flex', justifyContent:'center', alignItems:'center'}}>
              <CardContent sx={{alignItems: 'center', justifyContent:'center', mx:'15vmin', mt:'20vmin', mb:'15vmin'}} style={{ border: "none", boxShadow: "none", backgroundColor: 'transparent'}}>   

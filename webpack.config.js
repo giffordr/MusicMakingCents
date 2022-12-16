@@ -43,6 +43,6 @@ module.exports = {
     historyApiFallback: true,
     index: "/"
   },
-  mode: 'production',
+  mode: 'development',
   
 };

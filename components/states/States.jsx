@@ -8,6 +8,7 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
+
 //import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 //import { createBrowserHistory, history } from 'history'
 
@@ -38,7 +39,8 @@ class States extends React.Component {
 constructor(props){
   super(props);
   this.state={
-    articleIndex: 1
+    articleIndex: 1,
+    
   }
   this.changeIndex = this.changeIndex.bind(this);
 }
@@ -61,13 +63,15 @@ constructor(props){
         /* make sure that the client-side rendering is complete, then */
         resolve(document.documentElement.outerHTML);
       });
+   
   
   return (
     <div className="App"> 
-      
       <HashRouter >
         
           <ElevateAppBar/>
+
+           
           
             <Switch>
               <Route path="/home" render={props => (
