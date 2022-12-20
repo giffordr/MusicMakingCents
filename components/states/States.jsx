@@ -8,13 +8,16 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
+import {
+  Link, NavLink
+} from 'react-router-dom';
 
 //import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 //import { createBrowserHistory, history } from 'history'
 
 
 import {
-  HashRouter, BrowserRouter as Router, Route, Routes, Link, Switch, Redirect, 
+  HashRouter, BrowserRouter as Router, Route, Routes, Switch, Redirect, 
 } from 'react-router-dom';
 //import {
 //  Switch
@@ -29,6 +32,8 @@ import Description from '../description/Description';
 import ElevateAppBar from '../states/ElevateAppBar';
 import ArticleList from '../articles/articleList';
 import Article from '../articles/Article';
+import Privacy from '../policies/Privacy';
+import Cookies from '../policies/Cookies';
 
 // Import all articles
 
@@ -89,10 +94,16 @@ constructor(props){
               
               <Route exact path="/" render={props => (
                 <Description {...props} title="Home" />
-                  )}/> 
+                  )}/>
+              <Route path="/Privacy" render={props => (
+                <Privacy {...props} title="Privacy Policy" />
+                )}/>
+              <Route path="/Cookies" render={props => (
+                <Cookies {...props} title="Cookie Policy" />
+                )}/>
               
             </Switch>
-         </HashRouter>
+         
       
       <footer className="App-footer">
         
@@ -109,13 +120,13 @@ constructor(props){
                 <p>
                     <Stack align-items="left" justifyContent="space-between" direction="row" display="flex"> 
                      <Stack display="flex" direction="row" spacing={1} align="left">
-                       <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', fontSize: 11}} variant="body" align="left"> 
+                       <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', fontSize: 11}} variant="body" align="left" component={Link} to={"/Privacy"} > 
                          Privacy Policy |
                         </Typography>
                        <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', fontSize: 11}} variant="body" align="left"> 
                          Copywrite |
                         </Typography>
-                       <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', fontSize: 11}} variant="body" align="left"> 
+                       <Typography style={{color:"#444242"}} sx={{ fontFamily: 'Arial', fontSize: 11}} variant="body" align="left" component={Link} to={"/Cookies"}> 
                          Cookies
                         </Typography>
                      </Stack>
@@ -152,7 +163,7 @@ constructor(props){
         
       </footer> 
       
-
+      </HashRouter>
     </div>
   );
   
