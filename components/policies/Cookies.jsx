@@ -379,26 +379,14 @@ render() {
                   </span>
                 </li>
               </ul>
-              <ol style={{ marginTop: "0in" }} start={4} type={1}>
-                <li
-                  className="MsoNormal"
-                  style={{
-                    color: "black",
-                    marginLeft: ".25in",
-                    border: "none",
-                    padding: "0in"
-                  }}
-                >
-                  <Divider />
-                  <p style={{ fontFamily: '"Segoe UI",sans-serif' }}>
-                    Controlling Cookies
-                  </p>
-                </li>
-              </ol>
+              
             </div>
             </div>
-          
+          <p>
+          <Divider />
+            </p>
           <div style={{marginLeft:"15.0pt"}}>
+            
             <div style={{  padding: "0in 0in 0in 0in" }}>
               <p
                 className="MsoNormal"
@@ -411,6 +399,33 @@ render() {
                   padding: "0in"
                 }}
               >
+                
+                <div
+              style={{
+                
+                padding: "0in 0in 0in 5.0pt",
+                marginLeft: ".25in",
+                marginRight: "0in"
+              }}
+            >
+                
+              <ol style={{ marginTop: "0in" }} start={4} type={1}>
+                <li
+                  className="MsoNormal"
+                  style={{
+                    color: "black",
+                    marginLeft: ".25in",
+                    border: "none",
+                    padding: "0in"
+                  }}
+                >
+                  
+                  <p style={{ fontFamily: '"Segoe UI",sans-serif' }}>
+                    Controlling Cookies
+                  </p>
+                </li>
+              </ol>
+                  </div>
                 <span style={{ fontFamily: '"Segoe UI",sans-serif', color: "black" }}>
                   You have the right to decide whether to accept or reject cookies. You
                   can exercise this right by adjusting your browser settings, but doing so
@@ -435,7 +450,7 @@ render() {
               </p>
             </div>
             </div>
-          <Divider />
+          
           <div style={{marginLeft:"15.0pt"}}>
             <div
               style={{
@@ -532,7 +547,34 @@ render() {
                   </span>
                 </li>
               </ul>
-              <ol style={{ marginTop: "0in" }} start={5} type={1}>
+              
+            </div>
+            </div>
+          <p>
+          <Divider />
+            </p>
+          <div style={{marginLeft:"15.0pt"}}>
+            <div style={{ padding: "0in 0in 0in 0in" }}>
+              <p
+                className="MsoNormal"
+                style={{
+                  marginTop: "15.0pt",
+                  marginRight: "0in",
+                  marginBottom: "15.0pt",
+                  marginLeft: "0in",
+                  border: "none",
+                  padding: "0in"
+                }}
+              >
+                <div
+              style={{
+                
+                padding: "0in 0in 0in 5.0pt",
+                marginLeft: ".25in",
+                marginRight: "0in"
+              }}
+            >
+                <ol style={{ marginTop: "0in" }} start={5} type={1}>
                 <li
                   className="MsoNormal"
                   style={{
@@ -547,22 +589,7 @@ render() {
                   </p>
                 </li>
               </ol>
-            </div>
-            </div>
-          <Divider />
-          <div style={{marginLeft:"15.0pt"}}>
-            <div style={{ padding: "0in 0in 0in 0in" }}>
-              <p
-                className="MsoNormal"
-                style={{
-                  marginTop: "15.0pt",
-                  marginRight: "0in",
-                  marginBottom: "15.0pt",
-                  marginLeft: "0in",
-                  border: "none",
-                  padding: "0in"
-                }}
-              >
+                  </div>
                 <span style={{ fontFamily: '"Segoe UI",sans-serif', color: "black" }}>
                   We may update our Cookie Policy from time to time to reflect changes to
                   our policies and practices. We encourage you to review our Cookie Policy
@@ -581,7 +608,25 @@ render() {
                 marginRight: "0in"
               }}
             >
-              <ol style={{ marginTop: "0in" }} start={6} type={1}>
+              
+            </div>
+            </div>
+          <Divider />
+            <div style={{marginLeft:"15.0pt"}}>
+            <div style={{  padding: "0in 0in 0in 0in" }}>
+              <p
+                className="MsoNormal"
+                style={{ marginTop: "15.0pt", border: "none", padding: "0in" }}
+              >
+                <div
+              style={{
+                
+                padding: "0in 0in 0in 5.0pt",
+                marginLeft: ".25in",
+                marginRight: "0in"
+              }}
+            >
+                <ol style={{ marginTop: "0in" }} start={6} type={1}>
                 <li
                   className="MsoNormal"
                   style={{
@@ -594,15 +639,7 @@ render() {
                   <span style={{ fontFamily: '"Segoe UI",sans-serif' }}>Contact Us</span>
                 </li>
               </ol>
-            </div>
-            </div>
-          <Divider />
-            <div style={{marginLeft:"15.0pt"}}>
-            <div style={{  padding: "0in 0in 0in 0in" }}>
-              <p
-                className="MsoNormal"
-                style={{ marginTop: "15.0pt", border: "none", padding: "0in" }}
-              >
+                  </div>
                 <span style={{ fontFamily: '"Segoe UI",sans-serif', color: "black" }}>
                   If you have any questions or concerns about our Cookie Policy or the use
                   of cookies on our Website, please contact us at
